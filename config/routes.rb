@@ -1,4 +1,8 @@
 Botsnpans::Application.routes.draw do
+  get "robots/new"
+
+  get "robots/create"
+
   devise_for :users
 
   match '/help', to: 'static_pages#help'
