@@ -1,4 +1,8 @@
 Botsnpans::Application.routes.draw do
+  get "user/all"
+
+  get "user/show"
+
   get "robot_part/new"
 
   get "robot_part/edit"
