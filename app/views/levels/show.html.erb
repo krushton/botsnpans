@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @level.name %>
+</p>
+
+<p>
+  <b>Final state:</b>
+  <%= @level.final_state_id %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @level.description %>
+</p>
+
+<p>
+  <b>Level category:</b>
+  <%= @level.level_category_id %>
+</p>
+
+<p>
+  <b>Time limit:</b>
+  <%= @level.time_limit %>
+</p>
+
+
+<%= link_to 'Edit', edit_level_path(@level) %> |
+<%= link_to 'Back', levels_path %>

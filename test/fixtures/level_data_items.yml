@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  level_id: 1
+  game_id: 1
+  completed: false
+  date_completed: 2012-11-08 11:21:01
+
+two:
+  level_id: 1
+  game_id: 1
+  completed: false
+  date_completed: 2012-11-08 11:21:01
