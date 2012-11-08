@@ -1,0 +1,29 @@
+<h1>Listing level_data_items</h1>
+
+<table>
+  <tr>
+    <th>Level</th>
+    <th>Game</th>
+    <th>Completed</th>
+    <th>Date completed</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @level_data_items.each do |level_data_item| %>
+  <tr>
+    <td><%= level_data_item.level_id %></td>
+    <td><%= level_data_item.game_id %></td>
+    <td><%= level_data_item.completed %></td>
+    <td><%= level_data_item.date_completed %></td>
+    <td><%= link_to 'Show', level_data_item %></td>
+    <td><%= link_to 'Edit', edit_level_data_item_path(level_data_item) %></td>
+    <td><%= link_to 'Destroy', level_data_item, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Level data item', new_level_data_item_path %>

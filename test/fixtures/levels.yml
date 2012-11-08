@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  final_state_id: 1
+  description: MyString
+  level_category_id: MyString
+  time_limit: 1
+
+two:
+  name: MyString
+  final_state_id: 1
+  description: MyString
+  level_category_id: MyString
+  time_limit: 1

@@ -1,0 +1,33 @@
+<%= form_for(@level_data_item) do |f| %>
+  <% if @level_data_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@level_data_item.errors.count, "error") %> prohibited this level_data_item from being saved:</h2>
+
+      <ul>
+      <% @level_data_item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :level_id %><br />
+    <%= f.number_field :level_id %>
+  </div>
+  <div class="field">
+    <%= f.label :game_id %><br />
+    <%= f.number_field :game_id %>
+  </div>
+  <div class="field">
+    <%= f.label :completed %><br />
+    <%= f.check_box :completed %>
+  </div>
+  <div class="field">
+    <%= f.label :date_completed %><br />
+    <%= f.datetime_select :date_completed %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

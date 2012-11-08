@@ -1,4 +1,10 @@
 Botsnpans::Application.routes.draw do
+  resources :level_data_items
+
+  resources :levels
+
+  resources :games
+
   get "robots/new"
 
   get "robots/create"

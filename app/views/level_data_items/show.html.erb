@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Level:</b>
+  <%= @level_data_item.level_id %>
+</p>
+
+<p>
+  <b>Game:</b>
+  <%= @level_data_item.game_id %>
+</p>
+
+<p>
+  <b>Completed:</b>
+  <%= @level_data_item.completed %>
+</p>
+
+<p>
+  <b>Date completed:</b>
+  <%= @level_data_item.date_completed %>
+</p>
+
+
+<%= link_to 'Edit', edit_level_data_item_path(@level_data_item) %> |
+<%= link_to 'Back', level_data_items_path %>
