@@ -1,0 +1,2 @@
+module RobotPartHelper
+end
