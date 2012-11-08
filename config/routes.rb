@@ -1,15 +1,5 @@
 Botsnpans::Application.routes.draw do
-  get "user/all"
-
-  get "user/show"
-
-  get "robot_part/new"
-
-  get "robot_part/edit"
-
-  get "robot_part/index"
-
-  get "robot_part/show"
+  resources :robots
 
   resources :level_data_items
 
@@ -17,15 +7,11 @@ Botsnpans::Application.routes.draw do
 
   resources :games
 
-  get "robots/new"
-
-  get "robots/create"
-
   devise_for :users
 
   match '/help', to: 'static_pages#help'
   match '/admin', to:'static_pages#admin'
-
+  match '/about', to:'static_pages#about'
   root to: 'static_pages#home'
 
   # The priority is based upon order of creation:
