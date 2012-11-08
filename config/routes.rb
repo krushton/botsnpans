@@ -1,4 +1,12 @@
 Botsnpans::Application.routes.draw do
+  get "robot_part/new"
+
+  get "robot_part/edit"
+
+  get "robot_part/index"
+
+  get "robot_part/show"
+
   resources :level_data_items
 
   resources :levels

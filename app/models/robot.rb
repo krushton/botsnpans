@@ -10,6 +10,6 @@
 #
 
 class Robot < ActiveRecord::Base
-	belongs_to:user
-	has_many:robot_parts
+	belongs_to :user
+	has_many :robot_parts
 end
