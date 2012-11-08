@@ -13,6 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-//= require app
 //= require foundation.min
+//= require app
 //= require modernizr.foundation
