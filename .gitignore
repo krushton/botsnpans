@@ -18,7 +18,7 @@
 /tmp
 
 # Ignore Gemfile.lock
-/Gemfile.lock
+Gemfile.lock
 
 # Banish Mac DS Store files
 .DS_Store

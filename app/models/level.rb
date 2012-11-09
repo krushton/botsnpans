@@ -13,4 +13,5 @@
 #
 
 class Level < ActiveRecord::Base
+	attr_accessible :name, :description, :final_state_id, :time_limit
 end

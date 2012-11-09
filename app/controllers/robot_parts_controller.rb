@@ -4,7 +4,7 @@ class RobotPartsController < ApplicationController
 # GET /robot_parts
 # GET /robot_parts.json
   def index
-  	@robot_parts = RobotPart.all
+  	@robot_parts = RobotPart.order('part_type DESC')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -38,7 +38,7 @@ class RobotPartsController < ApplicationController
 
     respond_to do |format|
       if @robot_part.save
-        format.html { redirect_to @robot_part, notice: 'Part was successfully created.' }
+        format.html { redirect_to robot_parts_path, notice: 'Part was successfully created.' }
         format.json { render json: @robot_part, status: :created, location: @robot_part }
       else
         format.html { render action: "new" }
@@ -55,7 +55,7 @@ class RobotPartsController < ApplicationController
 
     respond_to do |format|
       if @robot_part.update_attributes(params[:robot_part])
-        format.html { redirect_to @robot_part, notice: 'Part was successfully updated.' }
+        format.html { redirect_to robot_parts_path, notice: 'Part was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -72,7 +72,7 @@ class RobotPartsController < ApplicationController
     @robot_part.destroy
 
     respond_to do |format|
-      format.html { redirect_to robot_parts_url }
+      format.html { redirect_to robot_parts_path }
       format.json { head :no_content }
     end
   end

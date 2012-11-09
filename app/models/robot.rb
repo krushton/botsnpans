@@ -12,4 +12,5 @@
 class Robot < ActiveRecord::Base
 	belongs_to :user
 	has_many :robot_parts
+	attr_accessible :name
 end
