@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
 
   has_one :robot
-  has_one :game
+  has_many :level_data_items
 
   def admin?
     self.role == "admin"

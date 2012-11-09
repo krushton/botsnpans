@@ -13,5 +13,5 @@
 
 class LevelDataItem < ActiveRecord::Base
 	has_one :level
-	belongs_to :game
+	belongs_to :user
 end
