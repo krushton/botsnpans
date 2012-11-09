@@ -1,5 +1,16 @@
-<h1>User Profile Page</h1>
-<p>Morgan's code goes here</p>
-<p>User name: <%= @user.name %></p>
-<p>User email address: <%= @user.email %></p>
-<p>User robot name: <%= @user.robot.name %></p>
+<div id="profile">
+	<h1>C3PO</h1>
+	<p>Edit Robot [insert link]</p>
+
+	<div id="image"><%= image_tag "c3po.png" %></div>
+
+	<div id = "gameStats">
+		<h4>Game Statistics</h4>
+		<ul id="statsList">
+			<li>Number of recipies cooked: 10</li>
+			<li>Best time: 3:20</li>
+			<li>Favorite Recipe: Cake</li>
+		</ul>
+	</div>
+	<p>Find me in app/views/user/show.html.erb</p>
+</div>
