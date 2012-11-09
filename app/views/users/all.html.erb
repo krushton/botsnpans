@@ -1,0 +1,24 @@
+<h1>Users List</h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email Address</th>
+    <th>Last Signed In</th>
+    <th>Robot</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.name %></td>
+    <td><%= user.email %></td>
+    <td><%= user.last_sign_in_at %></td>
+    <td>Robot name goes here</td>
+    <td><%= link_to 'Edit',  edit_user_registration_path(user) %></td>
+    <td><%= link_to 'Delete', user_path(user), :method => :delete, :confirm => 'Are you sure?' %>
+</td>
+  </tr>
+<% end %>
+</table>
+

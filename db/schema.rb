@@ -11,12 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121108191619) do
+ActiveRecord::Schema.define(:version => 20121109031121) do
 
   create_table "games", :force => true do |t|
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "level_data_items", :force => true do |t|
+    t.integer  "level_id"
+    t.integer  "game_id"
+    t.boolean  "completed"
+    t.datetime "date_completed"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "levels", :force => true do |t|
@@ -57,6 +66,8 @@ ActiveRecord::Schema.define(:version => 20121108191619) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.integer  "robot_id"
+    t.string   "name"
+    t.string   "role"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

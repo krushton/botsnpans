@@ -1,4 +1,5 @@
 class LevelsController < ApplicationController
+  # Gets a list of all the levels in the game (recipe book)
   # GET /levels
   # GET /levels.json
   def index
@@ -10,6 +11,7 @@ class LevelsController < ApplicationController
     end
   end
 
+  # Get the details of a particular level. To be used by the game screen.
   # GET /levels/1
   # GET /levels/1.json
   def show
@@ -21,6 +23,7 @@ class LevelsController < ApplicationController
     end
   end
 
+  # Create a new level. This will be used by administrators.
   # GET /levels/new
   # GET /levels/new.json
   def new
@@ -32,6 +35,7 @@ class LevelsController < ApplicationController
     end
   end
 
+  # Edit an existing level. This will be used by administrators.
   # GET /levels/1/edit
   def edit
     @level = Level.find(params[:id])

@@ -1,0 +1,7 @@
+<h1>Robot Parts</h1>
+<p>Viewing all the robot parts.</p>
+<% @robot_parts.each do |robot_part| %>
+  <ul>
+  	<li><%= robot_part.type %><%= image_tag robot_part.image_url %></li>
+  </ul>
+<% end %>

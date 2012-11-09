@@ -1,5 +1,8 @@
 Botsnpans::Application.routes.draw do
+  
   resources :robots
+
+  resources :robot_parts
 
   resources :level_data_items
 
@@ -7,11 +10,17 @@ Botsnpans::Application.routes.draw do
 
   resources :games
 
-  devise_for :users
+  devise_for :users do
+    get "/sign_up" => "devise/registrations#new"
+  end
 
   match '/help', to: 'static_pages#help'
   match '/admin', to:'static_pages#admin'
   match '/about', to:'static_pages#about'
+  match "/users/all" => "users#all"
+  match "/users/show" => "users#show"
+  match '/users/:id', :to => 'users#destroy', :as => :user, :via => :delete
+
   root to: 'static_pages#home'
 
   # The priority is based upon order of creation:

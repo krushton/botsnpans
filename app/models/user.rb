@@ -16,6 +16,8 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  robot_id               :integer
+#  name                   :string(255)
+#  role                   :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -26,9 +28,13 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me
 
   has_one :robot
   has_one :game
+
+  def admin?
+    self.role == "admin"
+  end
   
 end

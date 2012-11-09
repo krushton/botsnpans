@@ -16,6 +16,8 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  robot_id               :integer
+#  name                   :string(255)
+#  role                   :string(255)
 #
 
 require 'test_helper'

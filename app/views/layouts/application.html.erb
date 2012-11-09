@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Botsnpans</title>
+  <title>Bots and Pans | A cooking game for every bot.</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
 <div class="nav">
@@ -12,7 +13,7 @@
 		Signed in as <%= current_user.email %>. Not you?
 		<%= link_to "Sign out",  destroy_session_path(:user), :method => :delete %>
 	<% else %>
-		<%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>.
+		<%= link_to "Sign up", sign_up_path %> or <%= link_to "sign in", new_user_session_path %>.
 	<% end %>
 <%= yield %>
 <p class="notice"><%= notice %></p>
