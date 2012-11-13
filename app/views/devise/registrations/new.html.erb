@@ -15,6 +15,11 @@
   <div><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></div>
 
+  <% if current_user.admin? %>
+    <div><%= f.label :role %> <br />
+    <%= f.text_field :role %></div>
+  <% end %>
+
   <div><%= f.submit "Sign up" %></div>
 <% end %>
 

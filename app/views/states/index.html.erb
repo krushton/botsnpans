@@ -6,7 +6,7 @@
     <th>Image url</th>
     <th>Position</th>
     <th>State category</th>
-    <th></th>
+    <th>Image preview</th>
     <th></th>
     <th></th>
   </tr>
@@ -16,7 +16,10 @@
     <td><%= state.name %></td>
     <td><%= state.image_url %></td>
     <td><%= state.position %></td>
-    <td><%= state.state_category_id %></td>
+    <td><%= state.state_category.name %></td>
+    <td>
+    <%= image_tag state.image_url %>
+    </td>
     <td><%= link_to 'Show', state %></td>
     <td><%= link_to 'Edit', edit_state_path(state) %></td>
     <td><%= link_to 'Destroy', state, confirm: 'Are you sure?', method: :delete %></td>

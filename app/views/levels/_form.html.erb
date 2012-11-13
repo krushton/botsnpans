@@ -25,7 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :level_category_id %><br />
-    <%= f.text_field :level_category_id %>
+    <%= collection_select(:level, :level_category_id, LevelCategory.all, :id, :name, :prompt => true) %>
   </div>
   <div class="field">
     <%= f.label :time_limit %><br />

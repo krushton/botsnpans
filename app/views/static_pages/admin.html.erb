@@ -1,2 +1,9 @@
-<h1>StaticPages#admin</h1>
-<p>Find me in app/views/static_pages/admin.html.erb</p>
+<h1>Admin Page</h1>
+<p>Administer All The Things!</p>
+<ul>
+	<li><%= link_to 'Levels', levels_path %></li>
+	<li><%= link_to 'States', states_path %></li>
+	<li><%= link_to 'Users', users_all_path %></li>	
+	<li><%= link_to 'Level Categories', level_categories_path %></li>
+	<li><%= link_to 'States Categories', state_categories_path %></li>
+</ul>

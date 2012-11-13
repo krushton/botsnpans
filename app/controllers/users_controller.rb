@@ -22,7 +22,6 @@ class UsersController < ApplicationController
   def verify_admin
     unless current_user.admin?
       flash[:error] = "You are not authorized to do this."
-      redirect_to new_login_url 
     end
   end
 
