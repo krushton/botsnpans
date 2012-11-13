@@ -1,0 +1,23 @@
+<h1>Listing state_categories</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @state_categories.each do |state_category| %>
+  <tr>
+    <td><%= state_category.name %></td>
+    <td><%= link_to 'Show', state_category %></td>
+    <td><%= link_to 'Edit', edit_state_category_path(state_category) %></td>
+    <td><%= link_to 'Destroy', state_category, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New State category', new_state_category_path %>

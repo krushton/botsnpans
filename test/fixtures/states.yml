@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: states
+#
+#  id                :integer          not null, primary key
+#  name              :string(255)
+#  image_url         :string(255)
+#  position          :integer
+#  state_category_id :integer
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  image_url: MyString
+  position: 1
+  state_category_id: 1
+
+two:
+  name: MyString
+  image_url: MyString
+  position: 1
+  state_category_id: 1

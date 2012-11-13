@@ -1,0 +1,25 @@
+<h1>Listing level_categories</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @level_categories.each do |level_category| %>
+  <tr>
+    <td><%= level_category.name %></td>
+    <td><%= level_category.description %></td>
+    <td><%= link_to 'Show', level_category %></td>
+    <td><%= link_to 'Edit', edit_level_category_path(level_category) %></td>
+    <td><%= link_to 'Destroy', level_category, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Level category', new_level_category_path %>

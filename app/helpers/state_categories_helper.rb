@@ -1,0 +1,2 @@
+module StateCategoriesHelper
+end

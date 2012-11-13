@@ -34,6 +34,7 @@ GEM
     bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-x86-mingw32)
     builder (3.0.4)
+    chunky_png (1.2.6)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -41,6 +42,12 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.4.0)
+    compass (0.12.2)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.1)
+    compass-rails (1.0.3)
+      compass (>= 0.12.2, < 0.14)
     devise (2.1.2)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -49,18 +56,25 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    fssm (0.2.9)
     hike (1.2.1)
     i18n (0.6.1)
     journey (1.0.4)
     jquery-rails (2.1.3)
       railties (>= 3.1.0, < 5.0)
       thor (~> 0.14)
+    jquery-ui-rails (2.0.2)
+      jquery-rails
+      railties (>= 3.1.0)
     json (1.7.5)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.19)
+    modular-scale (1.0.2)
+      compass (>= 0.11.5)
+      sassy-math (>= 1.2)
     multi_json (1.3.7)
     orm_adapter (0.4.0)
     pg (0.12.2)
@@ -96,6 +110,8 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
+    sassy-math (1.2)
+      compass (~> 0.11)
     sprockets (2.1.3)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -113,6 +129,11 @@ GEM
       multi_json (~> 1.0, >= 1.0.2)
     warden (1.2.1)
       rack (>= 1.0)
+    zurb-foundation (3.2.0)
+      compass (>= 0.12.2)
+      modular-scale (>= 1.0.2)
+      rake
+      sass (>= 3.2.0)
 
 PLATFORMS
   ruby
@@ -121,10 +142,13 @@ PLATFORMS
 DEPENDENCIES
   annotate (>= 2.5.0)
   coffee-rails (~> 3.2.1)
+  compass-rails
   devise
   jquery-rails
+  jquery-ui-rails
   pg (= 0.12.2)
   rails (= 3.2.1)
   sass-rails (~> 3.2.3)
   sqlite3 (= 1.3.5)
   uglifier (>= 1.0.3)
+  zurb-foundation

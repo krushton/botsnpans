@@ -11,6 +11,7 @@ class RobotsController < ApplicationController
   # GET /robots/new.json
   def new
     @robot = Robot.new
+    @parts = RobotPart.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -20,6 +21,7 @@ class RobotsController < ApplicationController
 
   def edit
     @robot = current_user.robot
+    @parts = RobotPart.all
   end
 
   # create a new robot for the logged in user

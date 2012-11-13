@@ -1,5 +1,11 @@
 Botsnpans::Application.routes.draw do
   
+  resources :level_categories
+
+  resources :state_categories
+
+  resources :states
+
   resources :robots
 
   resources :robot_parts

@@ -1,0 +1,29 @@
+<h1>@robot.name</h1>
+
+<%= form_for(@robot) do |f| %>
+  <% if @robot.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@robot.errors.count, "error") %> prohibited this robot from being saved:</h2>
+
+      <ul>
+      <% @robot.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div>
+  <% @robot.robot_parts.each do |part| %>
+  		<div>
+   			 <%= image_tag part.image_url %>
+  		</div>
+
+	<% end %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
