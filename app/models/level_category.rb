@@ -10,4 +10,5 @@
 #
 
 class LevelCategory < ActiveRecord::Base
+	has_many :levelS
 end

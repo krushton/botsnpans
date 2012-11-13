@@ -13,6 +13,6 @@
 #
 
 class Level < ActiveRecord::Base
-	attr_accessible :name, :description, :final_state_id, :time_limit
+	attr_accessible :name, :description, :final_state_id, :time_limit, :level_category_id
 	belongs_to :level_category
 end

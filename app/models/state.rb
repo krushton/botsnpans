@@ -13,4 +13,5 @@
 
 class State < ActiveRecord::Base
 	belongs_to :state_category
+	attr_accessible :name, :image_url, :position, :state_category_id
 end
