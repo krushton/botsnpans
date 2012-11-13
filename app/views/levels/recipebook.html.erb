@@ -1,0 +1,18 @@
+<h1>Bots 'n Pans</h1>
+
+
+<h5>Recipe Book</h5>
+
+<div id="accordion">
+    <% @levels.each do |level| %>
+
+    <h3><%= level.name %></h3>
+    
+    <div>
+        <p><%= level.description %></p>
+        <p><%= level.level_category.name %></p>
+    </div>
+
+    <% end %>
+</div>
+

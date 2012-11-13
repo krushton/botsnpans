@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :final_state_id %><br />
-    <%= f.number_field :final_state_id %>
+    <%= collection_select(:level, :final_state_id, State.all, :id, :name, :prompt => true) %>
   </div>
   <div class="field">
     <%= f.label :description %><br />

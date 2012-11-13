@@ -9,6 +9,8 @@
 #  state_category_id :integer
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
+#  state_before_id   :integer
+#  state_after_id    :integer
 #
 
 require 'test_helper'

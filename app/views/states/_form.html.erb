@@ -23,9 +23,17 @@
     <%= f.label :position %><br />
     <%= f.number_field :position %>
   </div>
-    <div class="field">
+  <div class="field">
     <%= f.label :state_category_id %><br />
     <%= collection_select(:state, :state_category_id, StateCategory.all, :id, :name, :prompt => true) %>
+  </div>
+  <div class="field">
+    <%= f.label :first_parent_state_id %><br />
+    <%= collection_select(:state, :first_parent_state_id, State.all, :id, :name, :prompt => true) %>
+  </div>
+  <div class="field">
+    <%= f.label :second_parent_state_id %><br />
+    <%= collection_select(:state, :second_parent_state_id, State.all, :id, :name, :prompt => true) %>
   </div>
   <div class="actions">
     <%= f.submit %>

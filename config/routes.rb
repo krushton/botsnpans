@@ -23,6 +23,7 @@ Botsnpans::Application.routes.draw do
   match '/help', to: 'static_pages#help'
   match '/admin', to:'static_pages#admin'
   match '/about', to:'static_pages#about'
+  match '/recipebook', to: 'levels#recipebook'
   match "/users/all" => "users#all"
   match "/users/show" => "users#show"
   match '/users/:id', :to => 'users#destroy', :as => :user, :via => :delete

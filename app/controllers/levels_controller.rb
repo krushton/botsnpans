@@ -1,5 +1,5 @@
 class LevelsController < ApplicationController
-  # Gets a list of all the levels in the game (recipe book)
+  # Gets a list of all the levels in the game
   # GET /levels
   # GET /levels.json
   def index
@@ -7,6 +7,18 @@ class LevelsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
+      format.json { render json: @levels }
+    end
+  end
+
+  # Recipe Book!
+  # GET /levels/recipebook
+  # GET /levels/1.json
+  def recipebook
+    @levels = Level.all
+
+    respond_to do |format|
+      format.html # recipebook.html.erb
       format.json { render json: @levels }
     end
   end
