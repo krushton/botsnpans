@@ -1,0 +1,26 @@
+* {
+	margin: 0;
+}
+
+html,
+body {
+	width: 100%;
+	min-height: 100%;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	padding: 0;
+	background-color: #FFFCCC;
+}
+
+#wrapper {
+	height: 100%;
+	margin: 0 20px;
+}
+
+#content {
+	max-width: 960px;
+	max-height: auto;
+	min-height: 300px;
+	background-color: white;
+	margin: 0 auto;
+}
