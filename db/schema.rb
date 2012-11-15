@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121113194133) do
+ActiveRecord::Schema.define(:version => 20121115015045) do
 
   create_table "games", :force => true do |t|
     t.integer  "user_id"
@@ -50,6 +50,12 @@ ActiveRecord::Schema.define(:version => 20121113194133) do
     t.string   "part_type"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "position"
+  end
+
+  create_table "robot_parts_robots", :id => false, :force => true do |t|
+    t.integer "robot_id"
+    t.integer "robot_part_id"
   end
 
   create_table "robots", :force => true do |t|

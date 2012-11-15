@@ -1,0 +1,25 @@
+<h1>Now playing <%= @level.name %></h1>
+
+<div id="main">
+  <h2>Serve</h2>
+  <div id="serve">
+    
+  </div>
+  <h2>Workspace</h2>
+  <div id="workspace">
+  </div>
+</div>
+<div id="sidebar">
+  <h2>Sidebar</h2>
+  <% @items.each do |item| %>
+  <p><%= item.second_parent_state_id %></p>
+    <div><%= item.name %><%= image_tag item.image_url, { :class => "item", :id => item.id, :style=> "width:100px"} %></div>
+  <% end %>
+</div>
+
+
+<div id="level_data">
+  <span id="final_state"><%= @level.final_state_id %></span>
+  <span id="time_limit"><%= @level.time_limit %></span>
+  <span id="description"><%= @level.description %></span>
+</div>
