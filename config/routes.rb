@@ -1,6 +1,11 @@
 Botsnpans::Application.routes.draw do
   
   
+  devise_for :users do
+    get "/sign_up" => "devise/registrations#new"
+  end
+
+  
   match '/help', to: 'static_pages#help'
   match '/admin', to:'static_pages#admin'
   match '/about', to:'static_pages#about'
@@ -27,10 +32,6 @@ Botsnpans::Application.routes.draw do
   resources :level_data_items
 
   resources :levels
-
-  devise_for :users do
-    get "/sign_up" => "devise/registrations#new"
-  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
