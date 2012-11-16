@@ -40,7 +40,7 @@ $(document).ready(function() {
                 format : 'json',
                 success : function(data) {
                     if (data.length > 0) {
-                        console.log('data')
+                        console.log(data);
                         var src = data[0].image_url;
                         $('#' + first).remove();
                         $('#' + second).attr({'src': '/assets/' + data[0].image_url, 'id' : data[0].id});
