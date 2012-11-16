@@ -32,11 +32,6 @@
             </div>
 
             <div class="column floatLeft marginLeft">
-
-  <% @items.each do |item| %>
-  <p><%= item.second_parent_state_id %></p>
-    <div><%= item.name %><%= image_tag item.image_url, { :class => "item", :id => item.id, :style=> "width:100px"} %></div>
-  <% end %>
             </div>
 
             <div class="column floatLeft marginLeft">
@@ -45,6 +40,11 @@
                 </div>
                 <div class="top">
 
+  <% @items.each do |item| %>
+  <% if !item.transition? %>
+    <div class="itembox"><%= item.name %><b4><%= image_tag item.image_url, {  :class=> "item", :id => item.id, :style=> "height:70px"} %></div>
+    <% end %>
+  <% end %>
                 </div>
             </div>
         </div>

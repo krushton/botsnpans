@@ -23,11 +23,11 @@ class LevelsController < ApplicationController
     end
   end
 
-  # Get the details of a particular level. To be used by the game screen.
-  # GET /levels/1
-  # GET /levels/1.json
-  def show
+  # Get the game screen for a particular level. 
+  # GET /game/id
+  def game
     @level = Level.find(params[:id])
+    @items = State.all
 
     respond_to do |format|
       format.html # show.html.erb

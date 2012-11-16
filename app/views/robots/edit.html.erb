@@ -14,7 +14,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name %> 
     <%= f.text_field :name %>
   </div>
 
@@ -69,20 +69,18 @@
   </div>
 
 
+  <div class="actions align-right">
+    <%= f.submit %>
+  </div>
+
   <div id="myrobot">
-    <% @foo = "" %>
-  <% if @robot.robot_parts.nil? then @foo = "yes" else @foo = "no" end %>
-  <%= @robot.robot_parts.length %>
   <% @robot.robot_parts.each do |part| %>
   		<div>
-   			 <%= image_tag part.image_url %>
+   			 <%= image_tag part.image_url, { :class => part.position } %>
   		</div>
 
 	<% end %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>
 

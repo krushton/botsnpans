@@ -1,8 +1,3 @@
-<h1>Bots 'n Pans</h1>
-
-
-<h5>Recipe Book</h5>
-
 
 <div id="profile">
 	<h1><%= current_user.robot.name %></h1>
@@ -20,14 +15,16 @@
 	</div>
 </div>
 
+
 <div id="accordion">
     <% @levels.each do |level| %>
 
     <h3><%= level.name %></h3>
     
     <div>
-        <p><%= level.description %></p>
-        <p><%= level.level_category.name %></p>
+        <p>Description: <%= level.description %></p>
+        <p>Category: <%= level.level_category.name %></p>
+        <p><%= link_to 'Play level', playgame_path(:id => level.id) %></p>
     </div>
 
     <% end %>

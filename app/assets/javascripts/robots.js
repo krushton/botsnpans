@@ -2,7 +2,6 @@ $(function() {
         $( "#tabs" ).tabs();
 
 	$('.bodypart').click(function() {
-		console.log('hi');
 		var position = $(this).data('position');
 		var target = $('#myrobot .' + position);
 		target.data('id', $(this).data('id'));

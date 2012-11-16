@@ -21,6 +21,13 @@ class StatesController < ApplicationController
     end
   end
 
+  def combine
+    @combo = [params[:first], params[:second]]
+    @matching = State.where(:first_parent_state_id => @combo, :second_parent_state_id => @combo)
+    respond_to do |format|
+      format.json { render json: @matching}
+    end
+  end
   # GET /states/new
   # GET /states/new.json
   def new

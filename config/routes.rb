@@ -5,7 +5,9 @@ Botsnpans::Application.routes.draw do
   match '/admin', to:'static_pages#admin'
   match '/about', to:'static_pages#about'
   match '/recipebook', to: 'levels#recipebook'
+  match '/game/:id', to: 'levels#game', :as => :playgame
   match '/robots/edit', to: 'robots#edit', :as => :robotcustomization
+  match '/states/combine', to: 'states#combine'
   match "/users/all" => "users#all"
   match "/users/show" => "users#show"
   match '/users/:id', :to => 'users#destroy', :as => :user, :via => :delete
@@ -25,8 +27,6 @@ Botsnpans::Application.routes.draw do
   resources :level_data_items
 
   resources :levels
-
-  resources :games
 
   devise_for :users do
     get "/sign_up" => "devise/registrations#new"

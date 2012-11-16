@@ -1,18 +1,45 @@
 
 $(document).ready(function() {
-    $( "#accordion" ).accordion({
+    $( '#accordion' ).accordion({
     	//collapsible: true
     });
-});
 
-$(function() {
-        $( "#modalIntro" ).dialog({
+      $( '#modalIntro' ).dialog({
             modal: true,
             width: '400px',
             buttons: {
-                Ok: function() {
-                    $( this ).dialog( "close" );
+                Play: function() {
+                    $( this ).dialog( 'close' );
                 }
             }
         });
-    });
+
+     $('.item').draggable();
+     $('#workspace').droppable();
+     $('.item').droppable({
+        'accepts' : '.item',
+        drop : function(event, ui) {
+            console.log('fire');
+            var first = $(ui.draggable).attr('id');
+            var second = $(this).attr('id');
+            $.ajax({
+                url : '/states/combine',
+                data : { 'first': first, 'second': second },
+                format : 'json',
+                success : function(data) {
+                    if (data.length > 0) {
+                        var src = data[0].image_url;
+                        $('#' + first).remove();
+                        $('#' + second).attr({'src': '/assets' + data[0].image_url, 'id' : data[0].id});
+                    } 
+                }
+
+
+            });
+        }
+     })
+
+});
+
+
+
