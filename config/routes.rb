@@ -1,5 +1,17 @@
 Botsnpans::Application.routes.draw do
   
+  
+  match '/help', to: 'static_pages#help'
+  match '/admin', to:'static_pages#admin'
+  match '/about', to:'static_pages#about'
+  match '/recipebook', to: 'levels#recipebook'
+  match '/robots/edit', to: 'robots#edit', :as => :robotcustomization
+  match "/users/all" => "users#all"
+  match "/users/show" => "users#show"
+  match '/users/:id', :to => 'users#destroy', :as => :user, :via => :delete
+
+  root to: 'static_pages#home'
+
   resources :level_categories
 
   resources :state_categories
@@ -19,16 +31,6 @@ Botsnpans::Application.routes.draw do
   devise_for :users do
     get "/sign_up" => "devise/registrations#new"
   end
-
-  match '/help', to: 'static_pages#help'
-  match '/admin', to:'static_pages#admin'
-  match '/about', to:'static_pages#about'
-  match '/recipebook', to: 'levels#recipebook'
-  match "/users/all" => "users#all"
-  match "/users/show" => "users#show"
-  match '/users/:id', :to => 'users#destroy', :as => :user, :via => :delete
-
-  root to: 'static_pages#home'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

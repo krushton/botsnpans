@@ -8,15 +8,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
-<div class="nav">
-	<% if user_signed_in? %>
-		Signed in as <%= current_user.email %>. Not you?
-		<%= link_to "Sign out",  destroy_session_path(:user), :method => :delete %>
-	<% else %>
-		<%= link_to "Sign up", sign_up_path %> or <%= link_to "sign in", new_user_session_path %>.
-	<% end %>
-<%= yield %>
+
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 </body>
 </html>
+<div id="wrapper">
+    <div id="content">
+        <header>
+			<div class="nav">
+			<% if user_signed_in? %>
+				Signed in as <%= current_user.email %>. Not you?
+				<%= link_to "Sign out",  destroy_session_path(:user), :method => :delete %>
+			<% else %>
+				<%= link_to "Sign up", sign_up_path %> or <%= link_to "sign in", new_user_session_path %>.
+			<% end %>
+			</div>
+		 </header>
+
+	<%= yield %>
+    </div>
+</div>

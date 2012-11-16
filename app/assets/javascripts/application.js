@@ -11,8 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require foundation
-//= require jquery.ui.core
-//= require jquery.ui.accordion
+//= require jquery.ui.all
 //= require jquery_ujs
 //= require_tree .
+

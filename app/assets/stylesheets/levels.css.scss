@@ -1,3 +1,63 @@
-// Place all the styles related to the Levels controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.floatLeft {
+	float: left;
+}
+
+.marginLeft {
+	margin-left: 10px;
+}
+
+#topSpace {
+	width: 100%;
+	height: 150px;
+	background-color: #CCC;
+}
+
+#gameSpace {
+	width: 100%;
+	height: 450px;
+	background-color: #999999;
+	margin: 10px 0 0 0;
+}
+
+.column {
+	width: 313px;
+	height: 450px;
+	background-color: #000000;
+}
+
+.top {
+	width: 100%;
+	height: 225px;
+	background-color: #CECECE;
+}
+
+#selectionSlider div {
+	width: 400px;
+	overflow: auto;
+	position: absolute;
+	left: 0px;
+}
+
+#selectionSlider div span {
+	display:block;
+	width: 65px;
+	text-align: center;
+	padding: 8px 10px 7px;
+	text-shadow: 0 -1px #005991;
+}
+
+#selector {
+	height: 14px;
+	background: #ededed; /* Old browsers */
+	background: -moz-linear-gradient(top,  #FEFEFE 0%, #ededed 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FEFEFE), color-stop(100%,#ededed)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #FEFEFE 0%,#ededed 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #FEFEFE 0%,#ededed 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #FEFEFE 0%,#ededed 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #FEFEFE 0%,#ededed 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FEFEFE', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+	float: left;
+	display: block;
+	border-radius: 4px;
+}
+

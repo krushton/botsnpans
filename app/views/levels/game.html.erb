@@ -1,25 +1,52 @@
-<h1>Now playing <%= @level.name %></h1>
 
-<div id="main">
-  <h2>Serve</h2>
-  <div id="serve">
-    
-  </div>
-  <h2>Workspace</h2>
-  <div id="workspace">
-  </div>
-</div>
-<div id="sidebar">
-  <h2>Sidebar</h2>
-  <% @items.each do |item| %>
-  <p><%= item.second_parent_state_id %></p>
-    <div><%= item.name %><%= image_tag item.image_url, { :class => "item", :id => item.id, :style=> "width:100px"} %></div>
-  <% end %>
-</div>
-
-
-<div id="level_data">
+<div id="level_data" style="display:none">
   <span id="final_state"><%= @level.final_state_id %></span>
   <span id="time_limit"><%= @level.time_limit %></span>
   <span id="description"><%= @level.description %></span>
 </div>
+
+
+
+        <div id="topSpace">
+          <h1>Now playing <%= @level.name %></h1>
+
+  <h2>Serve</h2>
+  <div id="serve">
+    
+  </div>
+        </div>    
+
+        <div id="gameSpace">
+            <div class="column floatLeft">
+                <div class="top">
+                    <!--<div id="selectionSlider" class="floatLeft">
+                        <div>
+                            <span class="float-left">Likes</span>
+                            <span class="float-left" id="selector"></span>
+                            <span class="float-left">Plays</span>
+                        </div>
+                    </div>-->
+                </div>
+                <div class="top">
+                </div>
+            </div>
+
+            <div class="column floatLeft marginLeft">
+
+  <% @items.each do |item| %>
+  <p><%= item.second_parent_state_id %></p>
+    <div><%= item.name %><%= image_tag item.image_url, { :class => "item", :id => item.id, :style=> "width:100px"} %></div>
+  <% end %>
+            </div>
+
+            <div class="column floatLeft marginLeft">
+                <div class="top">
+
+                </div>
+                <div class="top">
+
+                </div>
+            </div>
+        </div>
+</body>
+</html>

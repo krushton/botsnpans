@@ -1,27 +1,13 @@
 class RobotsController < ApplicationController
   before_filter :authenticate_user!
-  # get the logged in user's robot
-  # GET /robot
-  def show
-  	@robot = current_user.robot
-  end
-
-  # send out all of the data needed to create a new robot (list of robot parts)
-  # GET /robots/new
-  # GET /robots/new.json
-  def new
-    @robot = Robot.new
-    @parts = RobotPart.all
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @robot }
-    end
-  end
 
   def edit
+
     @robot = current_user.robot
-    @parts = RobotPart.all
+    @heads = RobotPart.where("part_type = ?", "head")
+    @torsos = RobotPart.where("part_type = ?", "body")
+    @arms = RobotPart.where("part_type = ? or part_type = ?", "leftarm", "rightarm")
+    @legs = RobotPart.where("part_type = ?", "legs")
   end
 
   # create a new robot for the logged in user

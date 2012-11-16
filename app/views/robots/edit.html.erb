@@ -1,4 +1,4 @@
-<h1>@robot.name</h1>
+<h1><%= @robot.name %></h1>
 
 <%= form_for(@robot) do |f| %>
   <% if @robot.errors.any? %>
@@ -17,13 +17,69 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
-  <div>
+
+  <div id="tabs">
+      <ul>
+          <li><a href="#tabs-1">Head</a></li>
+          <li><a href="#tabs-2">Arms</a></li>
+          <li><a href="#tabs-3">Body</a></li>
+          <li><a href="#tabs-4">Legs</a></li>
+      </ul>
+      <div id="tabs-1" class="pos-1">
+        <% @heads.each do |part| %>
+          <% @highl = "" %>
+          <% if @heads.include?(part) then @highl = "highlight" end %>
+          <div class="bodypart">
+             <%= image_tag part.image_url, { :class => "part", :data => { :id => part.id, :position => part.position }} %>
+          </div>
+
+        <% end %>
+      </div>
+      <div id="tabs-2" class="pos-2 pos-4">
+         <% @arms.each do |part| %>
+          <% @highl = "" %>
+          <% if @heads.include?(part) then @highl = "highlight" end %>
+          <div class="bodypart">
+             <%= image_tag part.image_url, { :class => "part", :data => { :id => part.id, :position => part.position }} %>
+          </div>
+        <% end %>
+         
+      </div>
+      <div id="tabs-3" class="pos-3">
+       <% @torsos.each do |part| %>
+          <% @highl = "" %>
+          <% if @heads.include?(part) then @highl = "highlight" end %>
+          <div class="bodypart">
+             <%= image_tag part.image_url, { :class => "part", :data => { :id => part.id, :position => part.position }} %>
+          </div>
+        <% end %>
+        
+      </div>
+       <div id="tabs-4" class="pos-5">
+        <% @legs.each do |part| %>
+          <% @highl = "" %>
+          <% if @heads.include?(part) then @highl = "highlight" end %>
+          <div class="bodypart">
+             <%= image_tag part.image_url, { :class => "part", :data => { :id => part.id, :position => part.position }} %>
+          </div>
+
+        <% end %>
+        
+      </div>
+  </div>
+
+
+  <div id="myrobot">
   <% @robot.robot_parts.each do |part| %>
   		<div>
    			 <%= image_tag part.image_url %>
   		</div>
 
 	<% end %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
+<% end %>
+

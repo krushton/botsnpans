@@ -8,9 +8,9 @@ $(function() {
 		var target = $('#myrobot .' + position);
 		target.data('id', $(this).data('id'));
 		target.attr('src', $(this).attr('src'));
-		console.log('.pos-' + position);
 		$('div .pos-' + position).find('img').removeClass('highlight');
 		$(this).addClass('highlight');
 	});
-    });
+
+});
 

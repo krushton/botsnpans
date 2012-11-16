@@ -9,6 +9,43 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require jquery.ui.all
  *= require_tree .
 */
-@import "foundation";
+
+
+* {
+	margin: 0;
+}
+
+html,
+body {
+	width: 100%;
+	min-height: 100%;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	color: #333333;
+	padding: 0;
+	background-color: #FFFCCC;
+}
+
+#wrapper {
+	height: 100%;
+	margin: 0 20px;
+}
+
+#content {
+	width: 960px;
+	max-height: auto;
+	min-height: 300px;
+	background-color: white;
+	margin: 0 auto;
+	padding: 0 10px 10px;
+}
+
+
+header {
+	width: 100%;
+	height: 75px;
+	border-bottom: 1px solid #CFCFCF;
+}

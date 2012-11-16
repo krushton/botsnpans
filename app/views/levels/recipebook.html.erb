@@ -3,6 +3,23 @@
 
 <h5>Recipe Book</h5>
 
+
+<div id="profile" class="sidebar floatleft">
+	<h1><%= @robot.name %></h1>
+	<p><%= link_to 'Edit Robot', robotcustomization_path %></p>
+
+	<%= image_tag "c3po.png" %>
+
+	<div id = "gameStats">
+		<h4>Game Statistics</h4>
+		<ul id="statsList">
+			<li>Number of recipies cooked: 10</li>
+			<li>Best time: 3:20</li>
+			<li>Favorite Recipe: Cake</li>
+		</ul>
+	</div>
+</div>
+
 <div id="accordion">
     <% @levels.each do |level| %>
 
@@ -15,4 +32,10 @@
 
     <% end %>
 </div>
+
+
+    <div id="modalIntro" title="Welcome" class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable ui-resizable">
+        <h1>You Are the Chef of the Future!</h1>
+        <p>You are Chefbot 3000, a high-tech cooking bot programmed to serve humankind. Literally. Complete recipies, earn new tools, and build your skills to please your human overlord and earn the title of Master Robochef!</p>
+    </div>	
 
