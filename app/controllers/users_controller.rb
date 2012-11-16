@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!, :verify_admin
+
   # Administrators only
   # GET /users/all
   def all
@@ -25,4 +26,6 @@ class UsersController < ApplicationController
     end
   end
 
+
 end
+
