@@ -30,7 +30,7 @@
           <% @highl = "" %>
           <% if @heads.include?(part) then @highl = "highlight" end %>
           <div>
-             <%= image_tag part.image_url, { :class => "bodypart", :data => { :id => part.id, :position => part.position }} %>
+             <%= image_tag part.image_url, { :class => "bodypart #{@highl}", :data => { :id => part.id, :position => part.position }} %>
           </div>
 
         <% end %>
@@ -40,7 +40,7 @@
           <% @highl = "" %>
           <% if @heads.include?(part) then @highl = "highlight" end %>
           <div>
-             <%= image_tag part.image_url, { :class => "bodypart", :data => { :id => part.id, :position => part.position }} %>
+             <%= image_tag part.image_url, { :class => "bodypart #{@highl}", :data => { :id => part.id, :position => part.position }} %>
           </div>
         <% end %>
          
@@ -48,7 +48,7 @@
       <div id="tabs-3" class="pos-3">
        <% @torsos.each do |part| %>
           <% @highl = "" %>
-          <% if @heads.include?(part) then @highl = "highlight" end %>
+          <% if @heads.include?(part) then @highl = "highlight #{@highl}" end %>
           <div>
              <%= image_tag part.image_url, { :class => "bodypart", :data => { :id => part.id, :position => part.position }} %>
           </div>
@@ -58,7 +58,7 @@
        <div id="tabs-4" class="pos-5">
         <% @legs.each do |part| %>
           <% @highl = "" %>
-          <% if @heads.include?(part) then @highl = "highlight" end %>
+          <% if @heads.include?(part) then @highl = "highlight #{@highl}" end %>
           <div>
              <%= image_tag part.image_url, { :class => "bodypart", :data => { :id => part.id, :position => part.position }} %>
           </div>

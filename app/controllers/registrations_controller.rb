@@ -5,8 +5,15 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def create
+    puts 'here'
     @user = User.new(params[:user])
-    @user.robot = Robot.new
+    @robot = Robot.new
+    @robot.user = @user
+    @robot.save
+
+    @user.robot = @robot
+    puts(@user)
+    puts(@robot)
 
     respond_to do |format|
       if @user.save
