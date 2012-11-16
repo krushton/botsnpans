@@ -1,11 +1,8 @@
 Botsnpans::Application.routes.draw do
   
-  
-  devise_for :users do
-    get "/sign_up" => "devise/registrations#new"
-  end
+  root to: 'static_pages#home'
 
-  
+
   match '/help', to: 'static_pages#help'
   match '/admin', to:'static_pages#admin'
   match '/about', to:'static_pages#about'
@@ -15,9 +12,15 @@ Botsnpans::Application.routes.draw do
   match '/states/combine', to: 'states#combine'
   match "/users/all" => "users#all"
   match "/users/show" => "users#show"
-  match '/users/:id', :to => 'users#destroy', :as => :user, :via => :delete
+ # match '/users/destroy/:id', :to => 'users#destroy', :as => :user, :via => :delete
 
-  root to: 'static_pages#home'
+  devise_for :users, :skip => [:sessions]
+    as :user do
+        get 'signin' => 'devise/sessions#new', :as => :new_user_session
+        post 'signin' => 'devise/sessions#create', :as => :user_session
+        get 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session
+    end
+
 
   resources :level_categories
 
