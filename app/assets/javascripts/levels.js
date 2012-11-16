@@ -16,6 +16,18 @@ $(document).ready(function() {
 
      $('.item').draggable();
      $('#workspace').droppable();
+     $('#serve').droppable({
+        drop: function(event,ui) {
+            var creation = $(ui.draggable).attr('id');
+            var goal = $('#final_state').text();
+            if (creation == goal) {
+                alert('you won!');
+            }
+            else {
+                alert('not right :(');
+            }
+        }
+     });
      $('.item').droppable({
         'accepts' : '.item',
         drop : function(event, ui) {
