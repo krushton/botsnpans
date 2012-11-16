@@ -17,7 +17,7 @@ class RobotPart < ActiveRecord::Base
 		case (part_type)
 		when "head"
 			return 1
-		when "leftharm"
+		when "leftarm"
 			return 2
 		when "body"
 			return 3
