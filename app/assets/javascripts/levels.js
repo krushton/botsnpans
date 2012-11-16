@@ -42,7 +42,7 @@ $(document).ready(function() {
                     if (data.length > 0) {
                         var src = data[0].image_url;
                         $('#' + first).remove();
-                        $('#' + second).attr({'src': '/assets' + data[0].image_url, 'id' : data[0].id});
+                        $('#' + second).attr({'src': '/assets/' + data[0].image_url, 'id' : data[0].id});
                     } 
                 }
 
