@@ -1,0 +1,17 @@
+.accordion > h3{
+	border-bottom: 1px solid red;
+	padding-top: 10px;
+}
+
+.accordion button{
+	float:right;
+}
+
+.accordion > div{
+	background-image:url('../images/recipecard.png');
+}
+
+.accordion p{
+	max-width: 80%;
+	line-height: 22px;
+}

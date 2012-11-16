@@ -1,6 +1,7 @@
 
 $(document).ready(function() {
-    $( "#accordion" ).accordion({
-    	//collapsible: true
+    $( ".accordion" ).accordion({
+    	collapsible: true,
+    	heightStyle: "fill"
     });
 });
