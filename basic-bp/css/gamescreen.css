@@ -9,26 +9,26 @@
 #topSpace {
 	width: 100%;
 	height: 150px;
-	background-color: #CCC;
 }
 
 #gameSpace {
 	width: 100%;
 	height: 450px;
-	background-color: #999999;
 	margin: 10px 0 0 0;
 }
 
 .column {
 	width: 313px;
 	height: 450px;
-	background-color: #000000;
 }
 
 .top {
 	width: 100%;
 	height: 225px;
-	background-color: #CECECE;
+}
+
+.column h3 {
+	text-align: center;
 }
 
 #selectionSlider div {
