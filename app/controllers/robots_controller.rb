@@ -2,8 +2,7 @@ class RobotsController < ApplicationController
   before_filter :authenticate_user!
 
   def edit
-
-    @robot = current_user.robot
+    @robot = current_user.robot.nil? ? Robot.find(1) : current_user.robot
     @heads = RobotPart.where("part_type = ?", "head")
     @torsos = RobotPart.where("part_type = ?", "body")
     @arms = RobotPart.where("part_type = ? or part_type = ?", "leftarm", "rightarm")

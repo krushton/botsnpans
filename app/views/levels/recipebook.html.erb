@@ -4,12 +4,12 @@
 <h5>Recipe Book</h5>
 
 
-<div id="profile" class="sidebar floatleft">
-	<h1><%= @robot.name %></h1>
+<div id="profile">
+	<h1><%= current_user.robot.name %></h1>
 	<p><%= link_to 'Edit Robot', robotcustomization_path %></p>
-
+	<div>
 	<%= image_tag "c3po.png" %>
-
+	</div>
 	<div id = "gameStats">
 		<h4>Game Statistics</h4>
 		<ul id="statsList">

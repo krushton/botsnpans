@@ -1,9 +1,8 @@
 $(function() {
-        $( "#tabs" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
-        $( "#tabs li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
-
+        $( "#tabs" ).tabs();
 
 	$('.bodypart').click(function() {
+		console.log('hi');
 		var position = $(this).data('position');
 		var target = $('#myrobot .' + position);
 		target.data('id', $(this).data('id'));

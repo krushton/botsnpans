@@ -29,8 +29,8 @@
         <% @heads.each do |part| %>
           <% @highl = "" %>
           <% if @heads.include?(part) then @highl = "highlight" end %>
-          <div class="bodypart">
-             <%= image_tag part.image_url, { :class => "part", :data => { :id => part.id, :position => part.position }} %>
+          <div>
+             <%= image_tag part.image_url, { :class => "bodypart", :data => { :id => part.id, :position => part.position }} %>
           </div>
 
         <% end %>
@@ -39,8 +39,8 @@
          <% @arms.each do |part| %>
           <% @highl = "" %>
           <% if @heads.include?(part) then @highl = "highlight" end %>
-          <div class="bodypart">
-             <%= image_tag part.image_url, { :class => "part", :data => { :id => part.id, :position => part.position }} %>
+          <div>
+             <%= image_tag part.image_url, { :class => "bodypart", :data => { :id => part.id, :position => part.position }} %>
           </div>
         <% end %>
          
@@ -49,8 +49,8 @@
        <% @torsos.each do |part| %>
           <% @highl = "" %>
           <% if @heads.include?(part) then @highl = "highlight" end %>
-          <div class="bodypart">
-             <%= image_tag part.image_url, { :class => "part", :data => { :id => part.id, :position => part.position }} %>
+          <div>
+             <%= image_tag part.image_url, { :class => "bodypart", :data => { :id => part.id, :position => part.position }} %>
           </div>
         <% end %>
         
@@ -59,8 +59,8 @@
         <% @legs.each do |part| %>
           <% @highl = "" %>
           <% if @heads.include?(part) then @highl = "highlight" end %>
-          <div class="bodypart">
-             <%= image_tag part.image_url, { :class => "part", :data => { :id => part.id, :position => part.position }} %>
+          <div>
+             <%= image_tag part.image_url, { :class => "bodypart", :data => { :id => part.id, :position => part.position }} %>
           </div>
 
         <% end %>
@@ -70,6 +70,9 @@
 
 
   <div id="myrobot">
+    <% @foo = "" %>
+  <% if @robot.robot_parts.nil? then @foo = "yes" else @foo = "no" end %>
+  <%= @robot.robot_parts.length %>
   <% @robot.robot_parts.each do |part| %>
   		<div>
    			 <%= image_tag part.image_url %>
