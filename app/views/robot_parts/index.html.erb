@@ -2,7 +2,7 @@
 <p>Viewing all the robot parts.</p>
 <% @robot_parts.each do |robot_part| %>
   <ul>
-  	<li><%= robot_part.part_type %>
+  	<li><%= robot_part.part_type %><%= image_tag robot_part.image_url %>
   		<br />
   	    <%= link_to 'Edit', edit_robot_part_path(robot_part) %> | 
   	    <%= link_to 'Delete', robot_part, confirm: 'Are you sure?', method: :delete %>

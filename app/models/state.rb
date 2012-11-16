@@ -17,6 +17,7 @@ class State < ActiveRecord::Base
 	belongs_to :state_category
 	attr_accessible :name, :image_url, :position, :state_category_id, :first_parent_state_id, 
 	:second_parent_state_id
+	validates :image_url, :presence => true
 
 	def transition?
 		self.state_category.name == "Transition"

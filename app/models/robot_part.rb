@@ -13,6 +13,7 @@
 class RobotPart < ActiveRecord::Base
 	attr_accessible :image_url, :part_type
 	has_and_belongs_to_many :robots
+	validates :image_url, :presence => true
 
 	def position
 		case (part_type)
