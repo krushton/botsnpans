@@ -63,14 +63,16 @@
 	border-radius: 4px;
 }
 
-.itembox {
+/*    ==============    GAME INTERACTIONS ================= */
+
+.helperPick {border:1px dashed #000; opacity:0.5}​
+
+.itembox, .helperPick {
 	width:100px;
 	height:100px;
 	float:left;
 	padding:10px;
 }
-
-
 
 /*    ==============    RECIPE BOOK ================= */
 #accordion {

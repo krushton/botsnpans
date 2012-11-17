@@ -15,9 +15,68 @@ $(document).ready(function() {
             }
         });
 
-     $('.item').draggable();
-     $('#workspace').droppable();
+     $('.item').draggable({
+        helper: 'clone',
+        cursorAt: {left: 115},
+
+     });
+
+     $('.item').each(function() {
+        addDroppableToItem($(this));
+        addDraggableToItem($(this));
+     });
+     
+     function addDraggableToItem(elem) {
+
+         elem.draggable({
+            helper: 'clone',
+            cursorAt: {left: 115},
+      });
+     }
+
+     function addDroppableToItem(elem) {
+
+        elem.droppable({
+        accepts : '.item',
+        greedy : true,
+        drop : function(event, ui) {
+            var first = $(ui.draggable).attr('id');
+            var second = $(this).attr('id');
+            console.log(first + " " + second);
+            $.ajax({
+                url : '/states/combine',
+                data : { 'first': first, 'second': second },
+                format : 'json',
+                success : function(data) {
+                    if (data.length > 0) {
+                        var src = data[0].image_url;
+                        $('#' + second).attr({'src': '/assets/' + data[0].image_url, 'id' : data[0].id});
+                    } 
+                }
+            });           
+        }
+     });
+
+     }
+
+     $('.dropbox').droppable({
+        accepts : '.item',
+        drop: function(event,ui) {
+            var id = $(ui.draggable).attr('id');
+            if (id.indexOf('clone') < 0) {
+                 var elem = ui.helper.clone()
+                 .attr('id', id + "-clone")
+                 .removeClass('ui-draggable-dragging');
+
+                 addDroppableToItem(elem);
+                 addDraggableToItem(elem);
+                 elem.appendTo($(this));
+
+            }
+        }
+     });
      $('#serve').droppable({
+        accepts : 'item',
         drop: function(event,ui) {
             var creation = $(ui.draggable).attr('id');
             var goal = $('#final_state').text();
@@ -29,29 +88,7 @@ $(document).ready(function() {
             }
         }
      });
-     $('.item').droppable({
-        'accepts' : '.item',
-        drop : function(event, ui) {
-            console.log('fire');
-            var first = $(ui.draggable).attr('id');
-            var second = $(this).attr('id');
-            $.ajax({
-                url : '/states/combine',
-                data : { 'first': first, 'second': second },
-                format : 'json',
-                success : function(data) {
-                    if (data.length > 0) {
-                        console.log(data);
-                        var src = data[0].image_url;
-                        $('#' + first).remove();
-                        $('#' + second).attr({'src': '/assets/' + data[0].image_url, 'id' : data[0].id});
-                    } 
-                }
 
-
-            });
-        }
-     })
 
 });
 
