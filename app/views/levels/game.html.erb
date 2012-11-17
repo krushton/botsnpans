@@ -1,3 +1,5 @@
+<%= content_for :head %>
+<%= stylesheet_link_tag "levels" %>
 
 <div id="level_data" style="display:none">
   <span id="final_state"><%= @level.final_state_id %></span>
@@ -35,9 +37,19 @@
             <div class="column floatLeft marginLeft">
                 <div class="top">
                     <h3>Tools</h3>
+                    <% @tools.each do |item| %>
+                      <% if !item.transition? %>
+                         <div class="itembox"><%= item.name %><b4><%= image_tag item.image_url, {  :class=> "item", :id => item.id, :style=> "height:70px"} %></div>
+                         <% end %>
+                      <% end %>
                 </div>
                 <div class="top">
                     <h3>Ingredients</h3>
+                    <% @items.each do |item| %>
+                      <% if !item.transition? %>
+                         <div class="itembox"><%= item.name %><b4><%= image_tag item.image_url, {  :class=> "item", :id => item.id, :style=> "height:70px"} %></div>
+                         <% end %>
+                      <% end %>
                 </div>
             </div>
   </div>

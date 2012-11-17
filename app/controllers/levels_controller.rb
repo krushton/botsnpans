@@ -27,7 +27,16 @@ class LevelsController < ApplicationController
   # GET /game/id
   def game
     @level = Level.find(params[:id])
-    @items = State.all
+
+    @items = []
+    @tools = []
+    State.all.each do |state| 
+      if state.state_category.name == "Tools"
+        @tools << state
+      else
+        @items << state
+      end
+    end
 
     respond_to do |format|
       format.html # show.html.erb

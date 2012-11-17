@@ -4,7 +4,7 @@
 
 <div id="profile">
 	<h1><%= current_user.robot.name %></h1>
-	<p><%= link_to 'Edit Robot', robotcustomization_path %></p>
+	<p><%= link_to 'Edit Robot', robotcustomization_path %> | <%= link_to 'Edit Account', edit_user_registration_path(:user) %></p>
 	<div>
 	<%= image_tag "c3po.png" %>
 	</div>
@@ -15,6 +15,30 @@
 			<li>Best time: 3:20</li>
 			<li>Favorite Recipe: Cake</li>
 		</ul>
+	</div>
+	<div id="badgeContainer">
+		<div class="badge unlocked">
+			Unocked badge 1
+		</div>
+		<div class="badge unlocked">
+			Unocked badge 2
+		</div>
+		<div class="badge unlocked">
+			Unocked badge 3
+		</div>
+			<hr>
+		<div class="badge locked">
+			Locked badge 1
+		</div>
+		<div class="badge locked">
+			Locked badge 2
+		</div>
+		<div class="badge locked">
+			Locked badge 3
+		</div>
+
+
+
 	</div>
 </div>
 
@@ -27,13 +51,11 @@
     <div>
         <div><%= level.description %></div>
         <p>Category: <%= level.level_category.name %></p>
-        <p><%= link_to 'Play!', playgame_path(:id => level.id), :class => "button" %></p>
+        <p><%= button_to 'Play!', playgame_path(:id => level.id), :class => "button" %></p>
     </div>
 
     <% end %>
-
-
-		    <h3>Tea</h3>
+		<h3>Tea</h3>
 		    <div>
 		    	<p>
 		    		Mixtape 3 wolf moon chillwave keytar, iphone fingerstache ethnic gentrify terry richardson aesthetic williamsburg. Salvia four loko occupy cardigan irony. Irony iphone single-origin coffee bicycle rights helvetica, brunch fanny pack keffiyeh tofu put a bird on it. Cred umami gentrify, art party bicycle rights brunch fanny pack kogi farm-to-table messenger bag yr. Wolf godard letterpress shoreditch, selvage sriracha gluten-free kogi marfa. Wes anderson echo park shoreditch art party. Semiotics mixtape whatever raw denim, wolf kale chips typewriter trust fund ennui narwhal pinterest.

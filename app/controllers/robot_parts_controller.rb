@@ -4,7 +4,7 @@ class RobotPartsController < ApplicationController
 # GET /robot_parts
 # GET /robot_parts.json
   def index
-  	@robot_parts = RobotPart.order('part_type DESC')
+  	@robot_parts = RobotPart.all
 
     respond_to do |format|
       format.html # index.html.erb
