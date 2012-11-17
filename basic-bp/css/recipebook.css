@@ -1,28 +1,36 @@
+.accordion {
+	margin: 0;
+	padding: 0;
+}
+
 .accordion > h3{
 	border-bottom: 2px solid red;
 	padding-top: 20px;
 }
 
-.accordion button{
-	float:right;
-}
-
 .accordion > div{
-	background-image:url('../images/recipecard.png');;
+	background-image:url('../images/recipecard.png');
+	background-attachment: scroll;
+	background-repeat: repeat;
 }
 
 .accordion p{
-	max-width: 80%;
 	line-height: 22px;
+	padding-top: 6px;
 }
 
-.accordion .ui-state-hover {
+.accordion .ui-state-hover, .ui-state-active {
 	background-color: #aaa;
-}
-
-.accordion .ui-state-active{
 }
 
 .accordion .ui-state-focus{
 	outline: none;
+}
+
+
+.playButton {
+	height: 18px;
+	width: 40px;
+	padding: 10px;
+	margin: 10px 20px 20px 20px;
 }
