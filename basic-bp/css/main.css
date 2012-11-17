@@ -16,6 +16,14 @@ body {
 	background-attachment: fixed;
 }
 
+.floatLeft {
+	float: left;
+}
+
+.floatRight {
+	float: right;
+}
+
 #wrapper {
 	height: 100%;
 	margin: 0 20px;
@@ -28,6 +36,7 @@ body {
 	background-color: white;
 	margin: 0 auto;
 	padding: 0 10px 0;
+	overflow: auto;
 }
 
 header {
@@ -45,6 +54,14 @@ header a {
 	text-decoration: none;
 }
 
+#navigation {
+	margin: 25px 0 0 0;
+}
+
+#navigation a {
+	margin: 0 10px;
+}
+
 footer {
 	width: 100%;
 	height: 50px;
@@ -54,10 +71,31 @@ footer {
 	margin-top: 10px;
 }
 
-.floatLeft {
-	float: left;
+/* BUTTONS! BUTTONS EVERYWHERE! */
+
+.greenButton {
+	width: 80px;
+	height: 20px;
+	color: white;
+	text-align: center;
+	background-color: #6FC627;
+	padding: 10px 10px 8px;
+	margin: 10px auto;
+	display: block;
+	cursor: pointer;
+	border-radius: 5px;
+	border-top: 1px solid #B8EDB1;
+	box-shadow: 0 0 0 1px #3BA50D;
 }
 
-.floatRight {
-	float: right;
+.greenButton:hover,
+.greenButton.hover {
+	background-color: #67D129;
+}
+
+.greenButton:active,
+.greenButton.active {
+	background-color: #51BA25;
+	border-top: none;
+	border-bottom: 1px solid #B8EDB1;
 }
