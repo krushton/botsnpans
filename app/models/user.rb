@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :role
 
-  after_save :get_robot
+  before_create :get_robot
 
   has_one :robot
   has_many :level_data_items

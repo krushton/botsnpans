@@ -1,3 +1,5 @@
+/*    ==============    GAME SCREEN ================= */
+
 .floatLeft {
 	float: left;
 }
@@ -9,26 +11,26 @@
 #topSpace {
 	width: 100%;
 	height: 150px;
-	background-color: #CCC;
 }
 
 #gameSpace {
 	width: 100%;
 	height: 450px;
-	background-color: #999999;
 	margin: 10px 0 0 0;
 }
 
 .column {
 	width: 313px;
 	height: 450px;
-	background-color: #000000;
 }
 
 .top {
 	width: 100%;
 	height: 225px;
-	background-color: #CECECE;
+}
+
+.column h3 {
+	text-align: center;
 }
 
 #selectionSlider div {
@@ -61,10 +63,6 @@
 	border-radius: 4px;
 }
 
-ul {
-	list-style-type:none;
-}
-
 .itembox {
 	width:100px;
 	height:100px;
@@ -72,6 +70,42 @@ ul {
 	padding:10px;
 }
 
-.ui-accordion .ui-accordion-icons {
-padding-left: 2.2em;
+
+
+/*    ==============    RECIPE BOOK ================= */
+#accordion {
+	width: 60%;
+	float:right;
 }
+.accordion > h3{
+	border-bottom: 1px solid red;
+	padding-top: 10px;
+}
+
+.accordion .button{
+	float:right;
+	margin-top:10px;
+}
+
+.accordion > div {
+	padding-top:3px;
+	background-image:url('/cssimages/recipecard.png');
+}
+
+.accordion p {
+	max-width: 80%;
+	font-size:12px;
+	line-height: 22px;
+}
+
+.category {
+	float: right;
+	font-style: italic;
+}
+
+/*    ==============    PROFILE ================= */
+#profile {
+	width: 30%;
+	float:left;
+}
+

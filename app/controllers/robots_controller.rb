@@ -12,7 +12,6 @@ class RobotsController < ApplicationController
   # create a new robot for the logged in user
   # POST /robots
   def create
-    @robot = Robot.new(params[:robot])
     @robot.user = current_user
 
     respond_to do |format|

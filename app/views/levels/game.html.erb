@@ -5,18 +5,13 @@
   <span id="description"><%= @level.description %></span>
 </div>
 
+  <div id="topSpace">
+      <h1><%= @level.name %></h1>
 
-
-        <div id="topSpace">
-          <h1>Now playing <%= @level.name %></h1>
-
-  <h2>Serve</h2>
-  <div id="serve" style="border: 1px solid red; width:100px; height:100px;">
-    
-  </div>
-        </div>    
-
-        <div id="gameSpace">
+      <h2>Serve</h2>
+      <div id="serve" style="border: 1px solid red; width:100px; height:100px;"></div>
+  </div>    
+   <div id="gameSpace">
             <div class="column floatLeft">
                 <div class="top">
                     <!--<div id="selectionSlider" class="floatLeft">
@@ -26,27 +21,26 @@
                             <span class="float-left">Plays</span>
                         </div>
                     </div>-->
+                    <h3>Stove Top</h3>
                 </div>
                 <div class="top">
+                    <h3>Oven</h3>
                 </div>
             </div>
 
             <div class="column floatLeft marginLeft">
+                <h3>Workspace</h3>
             </div>
 
             <div class="column floatLeft marginLeft">
                 <div class="top">
-
+                    <h3>Tools</h3>
                 </div>
                 <div class="top">
-
-  <% @items.each do |item| %>
-  <% if !item.transition? %>
-    <div class="itembox"><%= item.name %><b4><%= image_tag item.image_url, {  :class=> "item", :id => item.id, :style=> "height:70px"} %></div>
-    <% end %>
-  <% end %>
+                    <h3>Ingredients</h3>
                 </div>
             </div>
-        </div>
-</body>
-</html>
+  </div>
+
+
+    

@@ -1,12 +1,13 @@
 
 $(document).ready(function() {
     $( '#accordion' ).accordion({
-    	//collapsible: true
+    	collapsible: true,
+        heightStyle: "fill"
     });
 
       $( '#modalIntro' ).dialog({
             modal: true,
-            width: '400px',
+            width: '800px',
             buttons: {
                 Play: function() {
                     $( this ).dialog( 'close' );
