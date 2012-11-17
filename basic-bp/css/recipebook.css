@@ -1,6 +1,6 @@
 .accordion > h3{
-	border-bottom: 1px solid red;
-	padding-top: 10px;
+	border-bottom: 2px solid red;
+	padding-top: 20px;
 }
 
 .accordion button{
@@ -8,10 +8,21 @@
 }
 
 .accordion > div{
-	background-image:url('../images/recipecard.png');
+	background-image:url('../images/recipecard.png');;
 }
 
 .accordion p{
 	max-width: 80%;
 	line-height: 22px;
+}
+
+.accordion .ui-state-hover {
+	background-color: #aaa;
+}
+
+.accordion .ui-state-active{
+}
+
+.accordion .ui-state-focus{
+	outline: none;
 }
