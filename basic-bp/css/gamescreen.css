@@ -3,7 +3,7 @@
 }
 
 .marginLeft {
-	margin-left: 10px;
+	margin-left: 9px;
 }
 
 #topSpace {
@@ -18,7 +18,7 @@
 }
 
 .column {
-	width: 313px;
+	width: 314px;
 	height: 450px;
 }
 
@@ -29,6 +29,18 @@
 
 .column h3 {
 	text-align: center;
+	padding-top: 15px;
+}
+
+#workSpace,
+#tools,
+#ingredients {
+	background-color: #F9E1CA;
+}
+
+#stoveTop,
+#oven {
+	background-color: #CECECE;
 }
 
 #selectionSlider div {
