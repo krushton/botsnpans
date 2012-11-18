@@ -1,7 +1,7 @@
 $(function() {
         $( "#modalIntro" ).dialog({
             modal: true,
-            width: '400px',
+            width: '500px',
             open : function(event, ui) {$(".ui-widget-overlay").bind('click', function(){$("#modalIntro").dialog('close'); });},
             buttons: {
                 "Let's Get Cooking": function() {

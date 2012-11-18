@@ -1,0 +1,9 @@
+#tabs{
+	float: left;
+}
+#myrobot{
+	height: 400px;
+	width: 300px;
+	border: solid;
+	border-width: 2px;
+}
