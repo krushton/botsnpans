@@ -28,6 +28,16 @@ class StatesController < ApplicationController
       format.json { render json: @matching}
     end
   end
+
+  def heat
+    @id = params[:id]
+    @heat = State.where(:name => "Heat")
+    @combo = [@id, @heat]
+    @matching = State.where(:first_parent_state_id => @id, :second_parent_state_id => @combo)
+    respond_to do |format|
+      format.json { render json: @matching}
+    end
+  end
   # GET /states/new
   # GET /states/new.json
   def new

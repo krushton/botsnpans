@@ -2,7 +2,7 @@
 $(document).ready(function() {
     $( '#accordion' ).accordion({
     	collapsible: true,
-        heightStyle: "fill"
+      heightStyle: "fill"
     });
 
       $( '#modalIntro' ).dialog({
@@ -15,48 +15,34 @@ $(document).ready(function() {
             }
         });
 
+      $('.item').css('z-index', 100)
      $('.item').draggable({
+        helper: 'clone'
      });
 
      $('.item').droppable({
         accepts : '.item',
         greedy : true,
-        drop : function(event, ui) {
-            var first = $(ui.draggable).attr('id');
-            var second = $(this).attr('id');
-            console.log(first + " " + second);
-            $.ajax({
-                url : '/states/combine',
-                data : { 'first': first, 'second': second },
-                format : 'json',
-                success : function(data) {
-                    if (data.length > 0) {
-                        var src = data[0].image_url;
-                        $('#' + first).remove();
-                        $('#' + second).attr({'src': '/assets/' + data[0].image_url, 'id' : data[0].id});
-                    } 
-                }
-
-            });           
-        }
+        drop : handleDrop          
      });
 
      $('.dropbox').droppable({
-        accepts : '.item' });
-     /*
+        accepts : '.item',
         drop: function(event,ui) {
+          console.log('dropped on stove');
             var id = $(ui.draggable).attr('id');
             if (id.indexOf('clone') < 0) {
-                 ui.helper.clone()
+                 var elem = ui.helper.clone()
                  .attr('id', id + "-clone")
                  .removeClass('ui-draggable-dragging')
-                 .appendTo($(this))
+                 .css({'left': 0, "z-index": 99})
                  .draggable()
-                 .droppable({accepts: '.item', greedy: true});
+                 .droppable({accepts: '.item', greedy: true, drop: handleDrop});
+                 $(this).append(elem);
             }
         }
      });
-*/
+
      $('#serve').droppable({
         accepts : 'item',
         drop: function(event,ui) {
@@ -72,19 +58,38 @@ $(document).ready(function() {
      });
 
 
+     function handleDrop(event, ui) {
+            var first = $(ui.draggable).attr('id');
+            var second = $(this).attr('id');
+
+            console.log(first + " " + second);
+            $.ajax({
+                url : '/states/combine',
+                data : { 'first': stripClone(first), 'second': stripClone(second) },
+                format : 'json',
+                success : function(data) {
+                    if (data.length > 0) {
+                        var src = data[0].image_url;
+                        $('#' + first).remove();
+                        $('#' + second).attr({'src': '/assets/' + data[0].image_url, 'id' : data[0].id});
+                    }
+                }
+          });
+     }
+
       $( "#stovecontrol" ).buttonset();
       $( "#ovencontrol" ).buttonset();
 
       $( ".controls").change(function() {
             if ( $(this).children(':checked').val() == "on" ) {
 
-                var item = $(this).parent().find('.item');
+                var items = $(this).parent().find('.item');
 
-                if (item.length == 1) {
-
+                if (items != "undefined" && items.length == 1) {
+                    console.log('hi');
                     $.ajax({
                         url: '/states/heat',
-                        data: { id : item.attr('id')},
+                        data: { id : items.attr('id')},
                         format: 'json',
                         success: function(data) {
                           console.log('here');
@@ -98,5 +103,13 @@ $(document).ready(function() {
            });
 });
 
-
+function stripClone(name) {
+  var index = name.indexOf('-');
+  if ( index >= 0 ) {
+    return name[0,index-1]
+  }
+  else {
+    return name
+  }
+}
 
