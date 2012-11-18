@@ -1,29 +1,28 @@
-.accordion {
+#levelChooser {
 	margin: 0;
 	padding: 0;
 }
 
-.accordion > h3{
+#levelChooser h3{
 	border-bottom: 2px solid red;
-	padding-top: 20px;
+	padding-top: 10px;
 }
 
-.accordion > div{
+#levelChooser > div{
 	background-image:url('../images/recipecard.png');
 	background-attachment: scroll;
 	background-repeat: repeat;
 }
 
-.accordion p{
+#levelChooser p{
 	line-height: 22px;
-	padding-top: 6px;
 }
 
-.accordion .ui-state-hover, .ui-state-active {
+#levelChooser .ui-state-hover, .ui-state-active {
 	background-color: #aaa;
 }
 
-.accordion .ui-state-focus{
+#levelChooser .ui-state-focus{
 	outline: none;
 }
 
