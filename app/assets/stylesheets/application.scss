@@ -9,13 +9,12 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require jquery.ui.core
- *= require jquery.ui.accordion
- *= require jquery.ui.tabs
- *= require jquery.ui.dialog
-
+ *= require jquery-ui-1.9.1.custom.css
 
 */
+
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+
 * {
 	margin: 0;
 }
@@ -32,6 +31,14 @@ body {
 	background-attachment: fixed;
 }
 
+.floatLeft {
+	float: left;
+}
+
+.floatRight {
+	float: right;
+}
+
 #wrapper {
 	height: 100%;
 	margin: 0 20px;
@@ -43,39 +50,74 @@ body {
 	min-height: 300px;
 	background-color: white;
 	margin: 0 auto;
-	padding: 0 10px 10px;
+	padding: 0 10px 0;
+	overflow: auto;
 }
 
 header {
 	width: 100%;
-	height: 75px;
+	height: 60px;
 	background-color: #00C3EA;
 	padding: 0 10px 0;
 	margin-left: -10px;
 }
 
-
-
-a.button {
-	text-decoration:none;
-    padding: 10px 15px;
-    background: #4479BA;
-    color: #FFF !important;
- 	-webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-    border: solid 1px #20538D;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
-    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
-    -webkit-transition-duration: 0.2s;
-    moz-transition-duration: 0.2s;
-    transition-duration: 0.2s;
+header a {
+	font-family: 'Montserrat', Helvetica, sans-serif;
+	font-size: 1.3em;
+	color: white;
+	text-decoration: none;
 }
 
-a.button:hover, a.button:focus {
-    background: #356094;
-    border: solid 1px #2A4E77;
-    text-decoration: none;
+header a:hover,
+header a.hover {
+	text-decoration: underline;
+}
+
+#navigation {
+	margin: 20px 0 0 0;
+}
+
+#navigation a {
+	margin: 0 10px;
+}
+
+footer {
+	width: 100%;
+	height: 30px;
+	font-size: .8em;
+	color: #EDD5A8;
+	background-color:#F75A11;
+	padding: 20px 10px 0;
+	margin-left: -10px;
+	margin-top: 10px;
+}
+
+/* BUTTONS! BUTTONS EVERYWHERE! */
+
+.greenButton {
+	color: white;
+	text-align: center;
+	background-color: #6FC627;
+	display: block;
+	cursor: pointer;
+	border-radius: 5px;
+	border-top: 1px solid #B8EDB1;
+	box-shadow: 0 0 0 1px #3BA50D;
+}
+
+.greenButton:hover,
+.greenButton.hover {
+	background-color: #67D129;
+}
+
+.greenButton:active,
+.greenButton.active {
+	background-color: #51BA25;
+	border-top: none;
+	border-bottom: 1px solid #B8EDB1;
+}
+
+.item {
+	height:70px;
 }

@@ -16,7 +16,14 @@
 <div id="wrapper">
     <div id="content">
         <header>
-			<div class="nav">
+			<div id="logo">
+            </div>
+
+            <div id="navigation" class="floatRight">
+                <a href="#">Home</a>
+                <a href="#">Recipe Book</a>
+            </div>
+            <div class="signin">
 			<% if user_signed_in? %>
 				Signed in as <%= current_user.email %>. Not you?
 				<%= link_to "Sign out",  destroy_user_session_path %>
@@ -25,8 +32,12 @@
 			<% end %>
 			</div>
 		 </header>
+		 	
 		 	<p class="notice"><%= notice %></p>
 			<p class="alert"><%= alert %></p>
 	<%= yield %>
     </div>
+    <footer>
+	<p>&copy; Copyright Bots&amp;Pans Team for Info213</p>
+</footer>
 </div>

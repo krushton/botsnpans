@@ -11,11 +11,6 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require jquery.ui.accordion
-//= require jquery.ui.tabs
-//= require jquery.ui.dialog
-//= require jquery.ui.draggable
-//= require jquery.ui.droppable
-//= require jquery_ujs
+//= require jquery-ui-1.9.1.min
 //= require_tree .
 

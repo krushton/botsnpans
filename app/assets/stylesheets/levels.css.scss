@@ -1,36 +1,61 @@
 /*    ==============    GAME SCREEN ================= */
-
-.floatLeft {
-	float: left;
-}
-
 .marginLeft {
-	margin-left: 10px;
+	margin-left: 9px;
 }
 
 #topSpace {
 	width: 100%;
-	height: 150px;
+	height: 200px;
 }
 
 #gameSpace {
 	width: 100%;
-	height: 450px;
+	height: 440px;
 	margin: 10px 0 0 0;
 }
 
 .column {
-	width: 313px;
-	height: 450px;
+	width: 314px;
+	height: 440px;
+	color: #6B513A;
+	position: relative;
 }
 
 .top {
 	width: 100%;
-	height: 225px;
+	height: 215px;
+	margin-bottom: 10px;
+	position: relative;
 }
 
 .column h3 {
+	width: 100%;
 	text-align: center;
+	position: absolute;
+	left: 0;
+	bottom: 10px;
+}
+
+#recipeName {
+	width: 50%;
+	height: 100%;
+	font-family: 'Montserrat', Helvetica, sans-serif;
+	font-size: 4.5em;
+	font-weight: bold;
+	letter-spacing: -2px;
+	color: #6B513A;
+
+}
+
+#workSpace,
+#tools,
+#ingredients {
+	background-color: #FFF2E5;
+}
+
+#stoveTop,
+#oven {
+	background-color: #ECECEC;
 }
 
 #selectionSlider div {
@@ -63,41 +88,61 @@
 	border-radius: 4px;
 }
 
+#serve {
+	width: 80px;
+	height: 20px;
+	padding: 10px 10px 8px;
+	margin: 10px auto;
+}
+
 /*    ==============    GAME INTERACTIONS ================= */
 
-.helperPick {border:1px dashed #000; opacity:0.5}​
-
-.itembox, .helperPick {
+.itembox {
 	width:100px;
 	height:100px;
 	float:left;
-	padding:10px;
+	padding:5px 3px;
 }
 
 /*    ==============    RECIPE BOOK ================= */
-#accordion {
-	width: 60%;
+.accordion {
+	margin: 0;
+	padding: 0;
+	width:60%;
 	float:right;
 }
-.accordion > h3 {
-	border-bottom: 1px solid red;
-	padding-top: 10px;
+
+.accordion > h3{
+	border-bottom: 2px solid red;
+	padding-top: 20px;
 }
 
-.accordion .button{
-	float:right;
-	margin-top:10px;
-}
-
-.accordion > div {
-	padding-top:3px;
+.accordion > div{
 	background-image:url('/cssimages/recipecard.png');
+	background-attachment: scroll;
+	background-repeat: repeat;
+	padding: 5px 5px 30px 5px;
 }
 
-.accordion p {
-	max-width: 80%;
-	font-size:12px;
-	line-height: 20px;
+.accordion p{
+	line-height: 22px;
+	padding-top: 6px;
+}
+
+.accordion .ui-state-hover, .ui-state-active {
+	background-color: #aaa;
+}
+
+.accordion .ui-state-focus{
+	outline: none;
+}
+
+
+.playButton {
+	height: 18px;
+	width: 40px;
+	padding: 10px;
+	margin: 10px 20px 20px 20px;
 }
 
 .category {
@@ -110,6 +155,7 @@
 	width: 35%;
 	float:left;
 	margin-right:5%;
+	background-color:#FFF;
 }
 
 

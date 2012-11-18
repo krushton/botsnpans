@@ -18,7 +18,7 @@
     <td><%= state.position %></td>
     <td><%= state.state_category.name %></td>
     <td>
-    <%= image_tag state.image_url %>
+    <%= image_tag state.image_url, :class => "item" %>
     </td>
     <td><%= link_to 'Show', state %></td>
     <td><%= link_to 'Edit', edit_state_path(state) %></td>

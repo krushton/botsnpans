@@ -1,53 +1,61 @@
 <%= content_for :head %>
 <%= stylesheet_link_tag "levels" %>
 
-<div id="level_data" style="display:none">
-  <span id="final_state"><%= @level.final_state_id %></span>
-  <span id="time_limit"><%= @level.time_limit %></span>
-  <span id="description"><%= @level.description %></span>
-</div>
-
   <div id="topSpace">
-      <h1><%= @level.name %></h1>
+       <div id="recipeName" class="floatLeft">
+                <%= @level.name %>
+        </div>
+        <div id="botSpace">
 
-      <h2>Serve</h2>
-      <div id="serve" style="border: 1px solid red; width:100px; height:100px;"></div>
+        </div>
   </div>    
+
    <div id="gameSpace">
+        <div id="dragarea">
             <div class="column floatLeft">
-                <div class="top dropbox">
-                    <!--<div id="selectionSlider" class="floatLeft">
-                        <div>
-                            <span class="float-left">Likes</span>
-                            <span class="float-left" id="selector"></span>
-                            <span class="float-left">Plays</span>
-                        </div>
-                    </div>-->
+
+                <div class="top" id="stoveTop">   
                     <h3>Stove Top</h3>
+                    <div id="stovecontrol" class="controls">
+                      <input type="radio" id="stoveoff" name="stove" checked="checked" /><label for="stoveoff">Off</label>
+                      <input type="radio" id="stoveon" name="stove" /><label for="stoveon">On</label>
+                    </div>
+                    <div class="dropbox">
+                    </div>
+ 
                 </div>
-                <div class="top dropbox">
+                <div class="top" id="oven">
                     <h3>Oven</h3>
+                     <div id="ovencontrol" class="controls">
+                      <input type="radio" id="ovenoff" name="oven" value="off" checked="checked" /><label for="ovenoff">Off</label>
+                      <input type="radio" id="ovenon" name="oven" value="on" /><label for="ovenon">On</label>
+                    </div>
+                    <div class="dropbox">
+                    </div>
                 </div>
             </div>
 
-            <div class="column floatLeft marginLeft dropbox">
+            <div class="column floatLeft marginLeft" id="workSpace">
+              <span id="serve" class="greenButton">Serve!</span>
                 <h3>Workspace</h3>
+                <div class="dropbox">
+                </div>
             </div>
-
+        </div>
             <div class="column floatLeft marginLeft">
-                <div class="top">
+                <div class="top" id="tools">
                     <h3>Tools</h3>
                     <% @tools.each do |item| %>
                       <% if !item.transition? %>
-                         <div class="itembox"><%= item.name %><b4><%= image_tag item.image_url, {  :class=> "item", :id => item.id, :style=> "height:70px"} %></div>
+                         <div class="itembox"><%= image_tag item.image_url, {  :class=> "item", :id => item.id, :style=> "height:70px"} %></div>
                          <% end %>
                       <% end %>
                 </div>
-                <div class="top">
+                <div class="top" id="ingredients"> 
                     <h3>Ingredients</h3>
                     <% @items.each do |item| %>
                       <% if !item.transition? %>
-                         <div class="itembox"><%= item.name %><b4><%= image_tag item.image_url, {  :class=> "item", :id => item.id, :style=> "height:70px"} %></div>
+                         <div class="itembox"><%= image_tag item.image_url, {  :class=> "item", :id => item.id, :style=> "height:70px"} %></div>
                          <% end %>
                       <% end %>
                 </div>
@@ -56,3 +64,10 @@
 
 
     
+
+<div id="level_data" style="display:none">
+  <span id="final_state"><%= @level.final_state_id %></span>
+  <span id="time_limit"><%= @level.time_limit %></span>
+  <span id="description"><%= @level.description %></span>
+</div>
+

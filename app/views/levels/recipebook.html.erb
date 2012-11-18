@@ -49,44 +49,14 @@
     <h3><%= level.name %></h3>
     
     <div>
-        <div><%= level.description %></div>
+    	<span class="floatRight greenButton playButton"><%= link_to 'Play!', playgame_path(:id => level.id)  %></span>
+        <p><%= level.description %></p>
         <p>Category: <%= level.level_category.name %></p>
-        <p><%= button_to 'Play!', playgame_path(:id => level.id), :class => "button" %></p>
     </div>
 
     <% end %>
-		<h3>Tea</h3>
-		    <div>
-		    	<p>
-		    		Mixtape 3 wolf moon chillwave keytar, iphone fingerstache ethnic gentrify terry richardson aesthetic williamsburg. Salvia four loko occupy cardigan irony. Irony iphone single-origin coffee bicycle rights helvetica, brunch fanny pack keffiyeh tofu put a bird on it. Cred umami gentrify, art party bicycle rights brunch fanny pack kogi farm-to-table messenger bag yr. Wolf godard letterpress shoreditch, selvage sriracha gluten-free kogi marfa. Wes anderson echo park shoreditch art party. Semiotics mixtape whatever raw denim, wolf kale chips typewriter trust fund ennui narwhal pinterest.
-		    	</p>
-		    </div>
 
-			<h3>Canned Ravioli</h3>
-			<div>
-				<p>
-					Aesthetic ethnic Austin, small batch hoodie DIY sriracha. Umami blog scenester DIY mixtape, locavore food truck pitchfork direct trade yr art party. Twee artisan sartorial stumptown tattooed salvia. Carles cliche semiotics, banksy sustainable biodiesel food truck banh mi pork belly godard echo park mlkshk beard bespoke. Pork belly lomo squid, portland direct trade brunch street art odd future flexitarian leggings cosby sweater four loko typewriter kogi gastropub. Brunch trust fund squid, direct trade lomo pop-up bicycle rights letterpress readymade wayfarers iphone post-ironic vinyl mustache yr. Locavore gluten-free pickled you probably haven't heard of them chambray keffiyeh, post-ironic brooklyn fap.
-				</p>
-			</div>
-
-			<h3>Frozen Pizza</h3>
-			<div>
-				<p>
-					Letterpress small batch etsy pour-over, gluten-free gentrify kale chips high life cosby sweater sartorial marfa odd future dreamcatcher selvage freegan. Post-ironic PBR banksy, chillwave pickled locavore raw denim thundercats fanny pack fingerstache you probably haven't heard of them. Fap twee kogi, retro PBR lo-fi direct trade pop-up mlkshk post-ironic whatever. Banh mi scenester ethnic tumblr, keytar carles narwhal master cleanse fap next level quinoa cardigan small batch. Gentrify thundercats ethnic, authentic lomo quinoa forage high life pop-up art party. Vegan gentrify put a bird on it gastropub, keffiyeh scenester cred stumptown. Artisan keffiyeh synth helvetica, bushwick mixtape art party bespoke gentrify viral vegan quinoa carles street art retro.
-				</p>
-			</div>
-
-		    <h3>Soup</h3>
-			<div>
-				<p>
-					Pitchfork gluten-free PBR blog. 3 wolf moon pour-over quinoa, echo park vinyl next level williamsburg. Biodiesel forage salvia photo booth direct trade, shoreditch irony brunch mumblecore truffaut. Raw denim skateboard forage, organic brunch Austin aesthetic bespoke letterpress sriracha dreamcatcher salvia cosby sweater gluten-free. Brooklyn quinoa thundercats selvage dreamcatcher mixtape. Polaroid bespoke cray, flexitarian terry richardson organic keffiyeh skateboard trust fund. Keffiyeh 3 wolf moon mlkshk, locavore leggings cliche ethical four loko.
-				</p>
-			</div>
+  
 
 </div>
 
-
-    <div id="modalIntro" title="Welcome">
-        <h1>You Are the Chef of the Future!</h1>
-        <p>You are Chefbot 3000, a high-tech cooking bot programmed to serve humankind. Literally. Complete recipies, earn new tools, and build your skills to please your human overlord and earn the title of Master Robochef!</p>
-    </div>	
