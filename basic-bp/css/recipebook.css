@@ -1,11 +1,16 @@
 #levelChooser {
 	margin: 0;
 	padding: 0;
+	height: 600px;
+	width: 600px;
+	display: block;
+	float: right;
 }
 
 #levelChooser h3{
 	border-bottom: 2px solid red;
 	padding-top: 10px;
+	font-weight: bold;
 }
 
 #levelChooser > div{
@@ -28,8 +33,11 @@
 
 
 .playButton {
-	height: 18px;
-	width: 40px;
 	padding: 10px;
-	margin: 10px 20px 20px 20px;
+	margin: 5px 20px 20px 20px;
+}
+
+label{
+    display: inline-block;
+    width: 5em;
 }
