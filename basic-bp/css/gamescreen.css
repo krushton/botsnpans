@@ -35,6 +35,18 @@
 	bottom: 10px;
 }
 
+
+.itembox {
+	width:100px;
+	height:100px;
+	float:left;
+	padding:5px 3px;
+}
+
+.item {
+	height:70px;
+}
+
 #recipeName {
 	width: 50%;
 	height: 100%;

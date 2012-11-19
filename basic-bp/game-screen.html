@@ -3,7 +3,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Bots and Pans</title>
 <link rel="stylesheet" href="css/main.css" type="text/css">
-<link rel="stylesheet" href="css/gamescreen.css" type="text/css"
+<link rel="stylesheet" href="css/gamescreen.css" type="text/css">
+<link rel="stylesheet" href="css/jquery-ui-1.9.1.custom.css" type="text/css">
+<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/game.js"></script>
+
 </head>
 
 <body>
@@ -33,9 +38,17 @@
             <div class="column floatLeft">
                 <div class="top dropbox" id="stoveTop">
                     <h3>Stove Top</h3>
+                       <div id="stovecontrol" class="controls">
+                      <input type="radio" id="stoveoff" name="stove" checked="checked" /><label for="stoveoff">Off</label>
+                      <input type="radio" id="stoveon" name="stove" /><label for="stoveon">On</label>
+                    </div>
                 </div>
                 <div class="top dropbox" id="oven">
                     <h3>Oven</h3>
+                    <div id="ovencontrol" class="controls">
+                      <input type="radio" id="ovenoff" name="oven" value="off" checked="checked" /><label for="ovenoff">Off</label>
+                      <input type="radio" id="ovenon" name="oven" value="on" /><label for="ovenon">On</label>
+                    </div>
                 </div>
             </div>
 
