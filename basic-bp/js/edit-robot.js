@@ -8,5 +8,6 @@ $(document).ready(function(){
 		var newUsername = $("#newName").val()
 		$('#userName').html(newUsername);
 		$('#editName').hide();
+		$('#editNameBtn').show();
 	});
 })
