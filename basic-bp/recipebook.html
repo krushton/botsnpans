@@ -3,18 +3,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Bots and Pans</title>
 
-
-<!---link rel="stylesheet" href="css/foundation.min.css">
-<link rel="stylesheet" href="css/app.css">
-<script src="js/modernizr.foundation.js"></script>
-<script src="js/jquery.foundation.tooltips.js"></script-->
-
 <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
-
-
-<link rel="stylesheet" href="css/main.css" type="text/css">
-<link rel="stylesheet" href="css/recipebook.css" type="text/css">
-
+<link rel="stylesheet" href="./css/main.css" type="text/css">
+<link rel="stylesheet" href="./css/recipebook.css" type="text/css">
 
 
 </head>
@@ -27,8 +18,8 @@
         	Bots and Pans
         </header>
 
-       <div class="row">
-			<div class="span4">
+        <div class="row">
+			<div class="span5">
 				<div class="row">
 					<div class="span4">
 						<h3 class="profileTitle">BonzoBot</h3>
@@ -44,31 +35,33 @@
 					<div class="span4">
 						<div class="row">
 							<div class="span2">
-								<img src="./images/badges/badge-dishwasher.png">
+								<img src="./images/badges/badge-dishwasher.png" class="badgeText" rel="tooltip" title="1 Point: Dishwasher" data-content="Played the tutorial!">
 							</div>
 							<div class="span2">
-								<img src="./images/badges/badge-wellDressed.png">
+								<img src="./images/badges/badge-wellDressed.png" class="badgeText" rel="tooltip" title="3 Points: Well Dressed!" data-content="Unlocked accessories for your bot!">
 							</div>
 						</div>
 
+					<hr>
+
 						<div class="row">
 							<div class="span2">
-								<img src="./images/badges/badge-locked-2.png">
+								<img src="./images/badges/badge-locked-2.png" class="badgeText" rel="tooltip" title="2 Points: Locked" data-content="Play more levels to unlock this badge!">
 							</div>
 							<div class="span2">
-								<img src="./images/badges/badge-locked-3.png">
+								<img src="./images/badges/badge-locked-3.png" class="badgeText" rel="tooltip" title="3 Points: Locked" data-content="Cook Soup to unlock legs for your bot!">
 							</div>
 							<div class="span2">
-								<img src="./images/badges/badge-locked-5.png">
+								<img src="./images/badges/badge-locked-5.png" class="badgeText" rel="tooltip" title="5 Points: Locked" data-content="Play a level in less than 60 seconds to unlock this badge!">
 							</div>
 						</div>
 					</div>
 				</div> <!-- end #badgeContainer -->
 		    </div>
 
-			<div class="span8">
+			<div class="span7">
 				<div class="accordion" id="levelChooser">
-					<h3>Tutorial</h3>
+					<h4>Tutorial</h4>
 					<div>
 						<span class="floatRight greenButton playButton">Cook!</span>
 						<p>
@@ -76,7 +69,16 @@
 						</p>
 					</div>
 
-					<h3>Ramen</h3>
+					<h4>Ramen</h4>
+		    		<div>
+		   				<span class="floatRight greenButton playButton">Cook!</span> 
+				    	<p>
+				    		Pitchfork gluten-free PBR blog. 3 wolf moon pour-over quinoa, echo park vinyl next level williamsburg. Biodiesel forage salvia photo booth direct trade, shoreditch irony brunch mumblecore truffaut.
+				    	</p>
+					</div>
+
+
+					<h4>Cake</h4>
 		    		<div>
 		   				<span class="floatRight greenButton playButton">Cook!</span>
 				    	<p>
@@ -85,7 +87,7 @@
 					</div>
 
 
-					<h3>Cake</h3>
+					<h4>Pizza</h4>
 		    		<div>
 		   				<span class="floatRight greenButton playButton">Cook!</span>
 				    	<p>
@@ -94,7 +96,7 @@
 					</div>
 
 
-					<h3>Pizza</h3>
+					<h4>Soup</h4>
 		    		<div>
 		   				<span class="floatRight greenButton playButton">Cook!</span>
 				    	<p>
@@ -103,7 +105,7 @@
 					</div>
 
 
-					<h3>Soup</h3>
+					<h4>Hummus</h4>
 		    		<div>
 		   				<span class="floatRight greenButton playButton">Cook!</span>
 				    	<p>
@@ -112,16 +114,7 @@
 					</div>
 
 
-					<h3>Hummus</h3>
-		    		<div>
-		   				<span class="floatRight greenButton playButton">Cook!</span>
-				    	<p>
-				    		Pitchfork gluten-free PBR blog. 3 wolf moon pour-over quinoa, echo park vinyl next level williamsburg. Biodiesel forage salvia photo booth direct trade, shoreditch irony brunch mumblecore truffaut.
-				    	</p>
-					</div>
-
-
-					<h3>Water</h3>
+					<h4>Water</h4>
 		    		<div>
 		   				<span class="floatRight greenButton playButton">Cook!</span>
 				    	<p>
@@ -131,16 +124,16 @@
 				</div>
 			</div>
         </div>
+    <footer>BOTS AND PANTS</footer>
     </div><!-- end content -->
-
 
 
     </div>
 </div>
 
-<script src="js/jquery-1.8.2.min.js"></script>
-<script src="js/jquery-ui-1.9.1.min.js"></script>
+<script src="./js/jquery-1.8.2.min.js"></script>
+<script src="./js/jquery-ui-1.9.1.min.js"></script>
 <script src="./bootstrap/js/bootstrap.js"></script>
-<script src = "js/levels.js"></script>
+<script src="./js/levels.js"></script>
 </body>
 </html>

@@ -1,17 +1,13 @@
 $(document).ready(function() {
+
+  $( ".badgeText" ).popover({
+    placement: "top",
+    trigger: "hover"
+  }); 
+
 	$( ".accordion" ).accordion({
     	collapsible: true,
     	heightStyle: "fill",
     });
-
-      $( '#modalIntro' ).dialog({
-            modal: true,
-            width: '800px',
-            buttons: {
-                Play: function() {
-                    $( this ).dialog( 'close' );
-                }
-            }
-        });
 
 });

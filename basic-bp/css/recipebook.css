@@ -1,15 +1,13 @@
 #levelChooser {
 	margin: 0;
 	padding: 0;
-	height: 550px;
+	height: 525px;
 	width: 100%;
-	display: block;
-	float: right;
-	padding-left: 10px;
+	padding-left: 15px;
 	border-left: 1px solid black;
 }
 
-#levelChooser h3{
+#levelChooser h4{
 	border-bottom: 2px solid red;
 	padding-top: 10px;
 	padding-bottom: 0px;
@@ -39,13 +37,13 @@
 .playButton {
 	padding: 10px;
 	margin: 10px 20px 20px 20px;
+	z-index: 100;
 }
-/* profile styles */
 
+/* profile styles */
 #profileStats, #profile{
 	padding: 0;
 }
-
 
 .profileTitle{
 	margin: 0;
@@ -60,7 +58,22 @@
 	border: 1px solid #666;
 	margin: 0px;
 	padding: 0;
-	height: 290px;
+	margin-left: 8px;
+	width: 320px;
+	height: 250px;
 	overflow-y: scroll;	
 }
 
+/* popovers */
+.popover-title{
+	background-color: black;
+}
+
+.popover-inner{
+	background-color: red;
+	padding: 10px;
+}
+
+.popover-content{
+	background-color: blue;
+}
