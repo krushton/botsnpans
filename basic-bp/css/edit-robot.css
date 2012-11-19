@@ -5,7 +5,7 @@
 	width: 100px;
 }
 
-#myrobot{
+#myrobot, #partsViewer{
 	border: solid;
 	border-width: 2px;
 }
