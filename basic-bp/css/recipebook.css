@@ -1,25 +1,30 @@
 #levelChooser {
 	margin: 0;
 	padding: 0;
-	height: 600px;
-	width: 600px;
+	height: 550px;
+	width: 100%;
 	display: block;
 	float: right;
+	padding-left: 10px;
+	border-left: 1px solid black;
 }
 
 #levelChooser h3{
 	border-bottom: 2px solid red;
 	padding-top: 10px;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
 	font-weight: bold;
 }
 
-#levelChooser > div{
+#levelChooser > div{;
 	background-image:url('../images/recipecard.png');
 	background-attachment: scroll;
 	background-repeat: repeat;
 }
 
 #levelChooser p{
+	padding-top: 6px;
 	line-height: 22px;
 }
 
@@ -31,13 +36,31 @@
 	outline: none;
 }
 
-
 .playButton {
 	padding: 10px;
-	margin: 5px 20px 20px 20px;
+	margin: 10px 20px 20px 20px;
+}
+/* profile styles */
+
+#profileStats, #profile{
+	padding: 0;
 }
 
-label{
-    display: inline-block;
-    width: 5em;
+
+.profileTitle{
+	margin: 0;
+	padding: 0;
 }
+
+#gameStats ul{
+	list-style-type: none;
+}
+
+#badgeContainer {
+	border: 1px solid #666;
+	margin: 0px;
+	padding: 0;
+	height: 290px;
+	overflow-y: scroll;	
+}
+

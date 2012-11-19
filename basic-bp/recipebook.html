@@ -4,14 +4,16 @@
 <title>Bots and Pans</title>
 
 
-<link rel="stylesheet" href="css/foundation.min.css">
+<!---link rel="stylesheet" href="css/foundation.min.css">
 <link rel="stylesheet" href="css/app.css">
 <script src="js/modernizr.foundation.js"></script>
+<script src="js/jquery.foundation.tooltips.js"></script-->
+
+<link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
 
 
 <link rel="stylesheet" href="css/main.css" type="text/css">
 <link rel="stylesheet" href="css/recipebook.css" type="text/css">
-<!--link rel="stylesheet" href="css/profile.css" type="text/css"-->
 
 
 
@@ -20,54 +22,51 @@
 <body>
 <div id="wrapper">
 
-	<div id="content">
+	<div id="content">	
         <header>
-        	Bots and Pants
+        	Bots and Pans
         </header>
 
-        <div class="row">
-        	<div id="profile" class="four columns">
-				<h1>BonzoBot</h1>
-				<p><a href="#">Edit Robot</a> | <a href="#">Edit Account</a></p>
-				<div>
-					<img src="asdf.jpg">
+       <div class="row">
+			<div class="span4">
+				<div class="row">
+					<div class="span4">
+						<h3 class="profileTitle">BonzoBot</h3>
+						<a href="#">Edit Robot</a> | <a href="#">Edit Account</a><br>
+						<img src="./images/robot-head.png">
+					</div>
 				</div>
-				<div id = "gameStats">
-					<h4>Game Statistics</h4>
-					<ul id="statsList">
-						<li>Total Recipes Cooked: 10</li>
-						<li>Best time: 3:20</li>
-						<li>Favorite Recipe: Cake</li>
-					</ul>
-				</div>
+
+
+				<h5 class="profileTitle">Achievements</h5>	
 
 				<div id="badgeContainer" class="row">
-					<div id="unlockedBadges" class="row">
-						<div class="four columns">
-							<img src="./images/badges/badge-barrelTime.png">
+					<div class="span4">
+						<div class="row">
+							<div class="span2">
+								<img src="./images/badges/badge-dishwasher.png">
+							</div>
+							<div class="span2">
+								<img src="./images/badges/badge-wellDressed.png">
+							</div>
 						</div>
-						<div class="four columns">
-							<img src="./images/badges/badge-wellDressed.png">
-						</div>
-						<div class="four columns">
-						</div>
-					</div>
-					<hr>
-					<div id="lockedBadges" class="row">
-						<div class="four columns">
-							<img src="./images/badges/badge-locked-2.png" id="locked-2">
-						</div>
-						<div class="four columns">
-							<img src="./images/badges/badge-locked-3.png">
-						</div>
-						<div class="four columns">
-							<img src="./images/badges/badge-locked-5.png">
-						</div>
-					</div>
-				</div>
-			</div>
 
-			<div class="six columns">
+						<div class="row">
+							<div class="span2">
+								<img src="./images/badges/badge-locked-2.png">
+							</div>
+							<div class="span2">
+								<img src="./images/badges/badge-locked-3.png">
+							</div>
+							<div class="span2">
+								<img src="./images/badges/badge-locked-5.png">
+							</div>
+						</div>
+					</div>
+				</div> <!-- end #badgeContainer -->
+		    </div>
+
+			<div class="span8">
 				<div class="accordion" id="levelChooser">
 					<h3>Tutorial</h3>
 					<div>
@@ -126,7 +125,7 @@
 		    		<div>
 		   				<span class="floatRight greenButton playButton">Cook!</span>
 				    	<p>
-				    		Pitchfork gluten-free PBR blog. 3 wolf moon pour-over quinoa, echo park vinyl next level williamsburg. Biodiesel forage salvia photo booth direct trade, shoreditch irony brunch mumblecore truffaut.
+				    		Pitchfork gluten-free PBR blog. 3 wolf moon pour-over quinoa, echo park vinyl next level williamsburg. Biodiesel forage salvia photo booth direct trade, shoreditch irony brunch mumblecore truffaut. Pitchfork gluten-free PBR blog. 3 wolf moon pour-over quinoa, echo park vinyl next level williamsburg. Biodiesel forage salvia photo booth direct trade, shoreditch irony brunch mumblecore truffaut. Pitchfork gluten-free PBR blog. 3 wolf moon pour-over quinoa, echo park vinyl next level williamsburg. Biodiesel forage salvia photo booth direct trade, shoreditch irony brunch mumblecore truffaut. Pitchfork gluten-free PBR blog. 3 wolf moon pour-over quinoa, echo park vinyl next level williamsburg. Biodiesel forage salvia photo booth direct trade, shoreditch irony brunch mumblecore truffaut. Pitchfork gluten-free PBR blog. 3 wolf moon pour-over quinoa, echo park vinyl next level williamsburg. Biodiesel forage salvia photo booth direct trade, shoreditch irony brunch mumblecore truffaut. Pitchfork gluten-free PBR blog. 3 wolf moon pour-over quinoa, echo park vinyl next level williamsburg. Biodiesel forage salvia photo booth direct trade, shoreditch irony brunch mumblecore truffaut. Pitchfork gluten-free PBR blog. 3 wolf moon pour-over quinoa, echo park vinyl next level williamsburg. Biodiesel forage salvia photo booth direct trade, shoreditch irony brunch mumblecore truffaut.
 				    	</p>
 					</div>
 				</div>
@@ -139,9 +138,9 @@
     </div>
 </div>
 
-
 <script src="js/jquery-1.8.2.min.js"></script>
 <script src="js/jquery-ui-1.9.1.min.js"></script>
+<script src="./bootstrap/js/bootstrap.js"></script>
 <script src = "js/levels.js"></script>
 </body>
 </html>
