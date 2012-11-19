@@ -4,45 +4,64 @@
 <title>Bots and Pans</title>
 <link rel="stylesheet" href="css/main.css" type="text/css">
 <link rel="stylesheet" href="css/edit-robot.css" type="text/css"
+
+<!-- Foundation files -->
+<link rel="stylesheet" href="css/foundation.min.css">
+<link rel="stylesheet" href="css/app.css">
+<script src="js/modernizr.foundation.js"></script>
+<!-- End Foundation files -->
 </head>
+
+
 <body>
-  <h1 style="float: left; margin-right: 200px;">Customize Your Robot</h1>
-  <h1>Chefbot</h1>
+  <div id="wrapper">
+
+       <div id="content">        
+          <header>Bots and Pans</header>
+
+          <div id='subHeader' class = 'row'>
+          <h1 id="title" class = 'six columns'>Customize Your Robot</h1>
+          <h3 class = 'six columns'>Chefbot</h3>
+          </div>
 
 
-    <div class="field">
-    Name:  <input id="name">
-    </div>
+            <div class="field">
+            Name:  <input id="name">
+            </div>
 
-    <div id="tabs">
-        <ul>
-            <li><a href="#tabs-1">Head</a></li>
-            <li><a href="#tabs-2">Arms</a></li>
-            <li><a href="#tabs-3">Body</a></li>
-            <li><a href="#tabs-4">Legs</a></li>
-        </ul>
-        <div id="tabs-1" class="pos-1">
-          <img src="images/robot/head.png" class='bodypart'>
+            <div class='row'>
+                <ul id="tabs" class="vertical tabs two columns">
+                    <li><a href="#tabs-1">Head</a></li>
+                    <li><a href="#tabs-2">Arms</a></li>
+                    <li><a href="#tabs-3">Body</a></li>
+                    <li><a href="#tabs-4">Legs</a></li>
+                </ul>
+                <div id='partsViewer' class='five columns'>
+                    <div id="tabs-1" class="pos-1">
+                      <img src="images/robot/head.png" class='bodypart'>
+                    </div>
+                    <div id="tabs-2" class="pos-2 pos-4">
+                       <img src="images/robot/rightarm.png" class='bodypart'>
+                       <img src="images/robot/leftarm.png" class='bodypart'>
+                    </div>
+                    <div id="tabs-3" class="pos-3">
+                      <img src="images/robot/body.png" class='bodypart'>
+                    </div>
+                     <div id="tabs-4" class="pos-5">
+                      <img src="images/robot/legs.png" class='bodypart'>
+                    </div>
+                </div>
+                <div id="myrobot" class="five columns">
+                    
+                </div>
+            </div>
+
+
+            <div class="actions align-right">
+              <button id="change">Edit Robot</button>
+            </div>
+
+
         </div>
-        <div id="tabs-2" class="pos-2 pos-4">
-           <img src="images/robot/rightarm.png" class='bodypart'>
-           <img src="images/robot/leftarm.png" class='bodypart'>
-        </div>
-        <div id="tabs-3" class="pos-3">
-          <img src="images/robot/body.png" class='bodypart'>
-        </div>
-         <div id="tabs-4" class="pos-5">
-          <img src="images/robot/legs.png" class='bodypart'>
-        </div>
-    </div>
-
-
-    <div class="actions align-right">
-      <button id="change">Edit Robot</button>
-    </div>
-
-    <div id="myrobot">
-    
-    </div>
 </body>
 </html>

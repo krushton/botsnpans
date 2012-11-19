@@ -1,9 +1,11 @@
-#tabs{
-	float: left;
+#title{
+	padding-right: 200px
 }
+#tabs{
+	width: 100px;
+}
+
 #myrobot{
-	height: 400px;
-	width: 300px;
 	border: solid;
 	border-width: 2px;
 }
