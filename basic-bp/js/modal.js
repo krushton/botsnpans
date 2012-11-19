@@ -18,6 +18,10 @@ $(function() {
     });
 $(document).ready(function(){
     $('.ui-icon').hide();
-    $(this).find('.ui-button').addClass("greenButton")
+    $(this).find('.ui-button').addClass("greenButton");
+    $('.ui-button').on('click',function(){
+        alert('test');
+    }) 
     }
+
 )
