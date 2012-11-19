@@ -31,9 +31,13 @@ button, #editNameBtn {
 	border-width: 2px;
 }
 #newName{
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 	margin-top:10px;
 }
 #change{
 	margin: 10px;
+	padding: 5px;
+}
+#nameUpdated {
+	margin-bottom: 5px;
 }
