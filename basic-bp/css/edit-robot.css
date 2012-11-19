@@ -3,9 +3,34 @@
 }
 #tabs{
 	width: 100px;
+	margin-left: 20px;
 }
 
-#myrobot, #partsViewer{
+#partsViewer{
 	border: solid;
 	border-width: 2px;
+}
+h3,#userName{
+	display: inline;
+	float: left;
+}
+button, #editNameBtn {
+	margin-top: 10px;
+
+	font-size: 10px;
+}
+#partsViewer {
+	margin-right: 0;
+
+}
+
+#myRobot{
+	min-height: 600px;
+	min-width: 50px;
+	border: solid;
+	border-width: 2px;
+}
+#newName{
+	margin-bottom: 10px;
+	margin-top:10px;
 }
