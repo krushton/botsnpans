@@ -3,6 +3,10 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>Bots and Pans</title>
 
+  <!-- Scripts -->
+  <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+  <script src="js/edit-robot.js"></script>
+
   <!-- Bootstrap files -->
   <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
   <script src="bootstrap/js/bootstrap.js"></script>
@@ -12,9 +16,7 @@
   <link rel="stylesheet" href="css/edit-robot.css" type="text/css"
   <link rel="stylesheet" href="css/app.css">
 
-  <!-- Scripts -->
-  <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
-  <script src="js/edit-robot.js"></script>
+
 
 </head>
 
@@ -42,26 +44,27 @@
             <div class='row'>
                 <div class="tabbable tabs-left span7">
                   <ul id="tabs" class="nav nav-tabs">
-                      <li class="active"><a href="#tabs-1" data-toggle="tab">Heads</a></li>
-                      <li><a href="#tabs-2" data-toggle="tab">Arms</a></li>
-                      <li><a href="#tabs-3" data-toggle="tab">Body</a></li>
-                      <li><a href="#tabs-4" data-toggle="tab">Legs</a></li>
+                      <li class="active"><a href="#tab1" data-toggle="tab">Heads</a></li>
+                      <li><a href="#tab2" data-toggle="tab">Arms</a></li>
+                      <li><a href="#tab3" data-toggle="tab">Body</a></li>
+                      <li><a href="#tab4" data-toggle="tab">Legs</a></li>
                   </ul>
                   <div id='partsViewer' class="tab-content">
-                      <div id="tabs-1" class="tab-pane active pos-1">
+                      <div id="tab1" class="tab-pane active pos-1">
                         <img src="images/robot/head.png" class='bodypart'>
                       </div>
-                      <div id="tabs-2" class="tab-pane pos-2 pos-4">
+                      <div id="tab2" class="tab-pane pos-2 pos-4">
                          <img src="images/robot/rightarm.png" class='bodypart'>
                          <img src="images/robot/leftarm.png" class='bodypart'>
                       </div>
-                      <div id="tabs-3" class="tab-pane pos-3">
+                      <div id="tab3" class="tab-pane pos-3">
                         <img src="images/robot/body.png" class='bodypart'>
                       </div>
-                       <div id="tabs-4" class="tab-pane pos-5">
+                       <div id="tab4" class="tab-pane pos-5">
                         <img src="images/robot/legs.png" class='bodypart'>
                       </div>
                   </div>
+                  <span id="change" class = "greenButton">Add to Robot</span>
                 </div>  
                 <div id="myRobot" class="span5">
                     
@@ -70,7 +73,7 @@
             
 
             <div class="actions align-right">
-              <button id="change">Edit Robot</button>
+             
             </div>
 
 
