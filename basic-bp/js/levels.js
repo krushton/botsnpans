@@ -5,9 +5,9 @@ $(document).ready(function() {
     trigger: "hover"
   }); 
 
-	$( ".accordion" ).accordion({
-    	collapsible: true,
-    	heightStyle: "fill",
-    });
+  $( ".accordion" ).accordion({
+    collapsible: true,
+    heightStyle: "fill",
+  });
 
 });
