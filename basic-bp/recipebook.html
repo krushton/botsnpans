@@ -27,12 +27,75 @@
 			    
 			  </div>
    		</div>	
+   		<div id="modalSignIn" class="modal hide fade">
+	        <div class='modal-header'>
+	        	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	        	<h3>Sign in or Create Account</h3>
+	        </div>
+	        <div class='modal-body'>
+    			<div id="signIn">
+	    			<h4>Sign In</h4>
+	    			<form class="form-horizontal">
+					  <div class="control-group">
+					    <label class="control-label" for="inputEmail">Email</label>
+					    <div class="controls">
+					      <input type="text" id="inputEmail" placeholder="Email">
+					    </div>
+					  </div>
+					  <div class="control-group">
+					    <label class="control-label" for="inputPassword">Password</label>
+					    <div class="controls">
+					      <input type="password" id="inputPassword" placeholder="Password">
+					    </div>
+					  </div>
+					  <div class="control-group">
+					    <div class="controls">
+					      <a class="btn" id="signInButton">Sign in</a>
+					    </div>
+					  </div>
+					</form>
+	        	<hr>
+	        	</div>
+
+	        	<div id="register">
+	    			<h4>Create Account</h4>
+	    			<form class="form-horizontal">
+					  <div class="control-group">
+					    <label class="control-label" for="registerName">Name</label>
+					    <div class="controls">
+					      <input type="text" id="registerName" placeholder="Name">
+					    </div>
+					  </div>
+					  <div class="control-group">
+					    <label class="control-label" for="registerEmail">Email</label>
+					    <div class="controls">
+					      <input type="text" id="registerEmail" placeholder="Email">
+					    </div>
+					  </div>
+					  <div class="control-group">
+					    <label class="control-label" for="registerPassword">Password</label>
+					    <div class="controls">
+					      <input type="password" id="registerPassword" placeholder="Password">
+					    </div>
+					  </div>
+					  <div class="control-group">
+					    <div class="controls">
+					      <a class="btn" id="registerButton">Register</a>
+					    </div>
+					  </div>
+					</form>
+	        	</div>
+   			</div>
+   	</div>
 	<div id="content">	
         <header>
         	Bots and Pans
             <div id="navigation" class="floatRight">
                 <!-- <a href="">Home</a> -->
                 <a href="recipebook.html">Recipe Book</a>
+                <a href="#" id="signInLink">Sign In</a>
+                <span id="signOutText">Signed in as test@test.com.</span>
+                <a href="#" id="signOutLink">Sign Out</a>
             </div>
         </header>
 
@@ -41,42 +104,47 @@
 
         <div class="row">
 			<div class="span5">
-				<div class="row">
-					<div class="span4">
-						<h3 class="profileTitle">BonzoBot</h3>
-						<a href="edit-robot.html">Edit Robot</a><!--  | <a href="#">Edit Account</a> --><br>
-						<img src="./images/robot-head.png">
-					</div>
+				<div id="profilePlaceholder">
+					<img src="images/botsnpans-robot-flat.png">
 				</div>
-
-				<h5 class="profileTitle">Achievements</h5>	
-
-				<div id="badgeContainer" class="row">
-					<div class="span4">
-						<div class="row">
-							<div class="span2">
-								<img src="./images/badges/badge-dishwasher.png" class="badgeText" rel="tooltip" title="1 Point: Dishwasher" data-content="Played the tutorial!">
-							</div>
-							<div class="span2">
-								<img src="./images/badges/badge-wellDressed.png" class="badgeText" rel="tooltip" title="3 Points: Well Dressed!" data-content="Unlocked accessories for your bot!">
-							</div>
-						</div>
-
-						<hr>
-
-						<div class="row">
-							<div class="span2">
-								<img src="./images/badges/badge-locked-2.png" class="badgeText" rel="tooltip" title="2 Points: Locked" data-content="Play more levels to unlock this badge!">
-							</div>
-							<div class="span2">
-								<img src="./images/badges/badge-locked-3.png" class="badgeText" rel="tooltip" title="3 Points: Locked" data-content="Cook Soup to unlock legs for your bot!">
-							</div>
-							<div class="span2">
-								<img src="./images/badges/badge-locked-5.png" class="badgeText" rel="tooltip" title="5 Points: Locked" data-content="Play a level in less than 60 seconds to unlock this badge!">
-							</div>
+				<div id="profile">
+					<div class="row">
+						<div class="span4">
+							<h3 class="profileTitle">BonzoBot</h3>
+							<a href="edit-robot.html">Edit Robot</a><!--  | <a href="#">Edit Account</a> --><br>
+							<img src="./images/robot-head.png">
 						</div>
 					</div>
-				</div> <!-- end #badgeContainer -->
+
+					<h5 class="profileTitle">Achievements</h5>	
+
+					<div id="badgeContainer" class="row">
+						<div class="span4">
+							<div class="row">
+								<div class="span2">
+									<img src="./images/badges/badge-dishwasher.png" class="badgeText" rel="tooltip" title="1 Point: Dishwasher" data-content="Played the tutorial!">
+								</div>
+								<div class="span2">
+									<img src="./images/badges/badge-wellDressed.png" class="badgeText" rel="tooltip" title="3 Points: Well Dressed!" data-content="Unlocked accessories for your bot!">
+								</div>
+							</div>
+
+							<hr>
+
+							<div class="row">
+								<div class="span2">
+									<img src="./images/badges/badge-locked-2.png" class="badgeText" rel="tooltip" title="2 Points: Locked" data-content="Play more levels to unlock this badge!">
+								</div>
+								<div class="span2">
+									<img src="./images/badges/badge-locked-3.png" class="badgeText" rel="tooltip" title="3 Points: Locked" data-content="Cook Soup to unlock legs for your bot!">
+								</div>
+								<div class="span2">
+									<img src="./images/badges/badge-locked-5.png" class="badgeText" rel="tooltip" title="5 Points: Locked" data-content="Play a level in less than 60 seconds to unlock this badge!">
+								</div>
+							</div>
+						</div>
+					</div> <!-- end #badgeContainer -->
+		    	</div>
 		    </div>
 
 			<div class="span7">
