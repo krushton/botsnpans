@@ -9,13 +9,14 @@
 
   <!-- Bootstrap files -->
   <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
-  <script src="bootstrap/js/bootstrap.js"></script>
+
   
   <!-- Custom style -->
   <link rel="stylesheet" href="css/main.css" type="text/css">
   <link rel="stylesheet" href="css/edit-robot.css" type="text/css"
   <link rel="stylesheet" href="css/app.css">
 
+    <script src="bootstrap/js/bootstrap.js"></script>
 
 
 </head>
@@ -32,58 +33,53 @@
           </header>
 
           <div id='subHeader' class = 'row'>
-            <div class ="span6">
-              <h1 id="title">Customize</h1>
+            <div class ="span7">
+              <h1 id="title">Edit Robot</h1>
             </div>
-            <div id="robotName" class = 'span2'>
-              <h3 id="userName">Chefbot</h3> 
-            </div>
-            <div class="span3">
-              <button id="editNameBtn" class="greenButton">edit</button>
-              <div id="editName">
-                <input id="newName" placeholder="New Robot Name"><button id="nameUpdated" class="btn span2">Change</button>
-              </div>
+            <div id="robotName" class ="span5">
+              <h3 id="userName">Chefbot</h3>
+              <input type="text" id="nameInput" placeholder="New Robot Name">
             </div>
               
             
-          </div>
 
             <div class='row'>
                 <div class="tabbable tabs-left span7">
                   <ul id="tabs" class="nav nav-tabs">
-                      <li class="active"><a href="#tab1" data-toggle="tab">Heads</a></li>
-                      <li><a href="#tab2" data-toggle="tab">Arms</a></li>
-                      <li><a href="#tab3" data-toggle="tab">Body</a></li>
-                      <li><a href="#tab4" data-toggle="tab">Legs</a></li>
+                      <li class="active"><a href="#tabs-1" data-toggle="tab">Heads</a></li>
+                      <li><a href="#tabs-2" data-toggle="tab">Arms</a></li>
+                      <li><a href="#tabs-3" data-toggle="tab">Body</a></li>
+                      <li><a href="#tabs-4" data-toggle="tab">Legs</a></li>
+                      <li><a href="#tabs-5" data-toggle="tab">Extras</a></li>
                   </ul>
                   <div id='partsViewer' class="tab-content">
-                      <div id="tab1" class="tab-pane active pos-1">
-                        <img src="images/robot/head.png" class='bodypart'>
+                      <div id="tabs-1" class="tab-pane active heads pos-1">
+
                       </div>
-                      <div id="tab2" class="tab-pane pos-2 pos-4">
-                         <img src="images/robot/rightarm.png" class='bodypart'>
-                         <img src="images/robot/leftarm.png" class='bodypart'>
+                      <div id="tabs-2" class="tab-pane arms pos-2 pos-4">
+
                       </div>
-                      <div id="tab3" class="tab-pane pos-3">
-                        <img src="images/robot/body.png" class='bodypart'>
+                      <div id="tabs-3" class="tab-pane bodies pos-3">
+
                       </div>
-                       <div id="tab4" class="tab-pane pos-5">
-                        <img src="images/robot/legs.png" class='bodypart'>
+                       <div id="tabs-4" class="tab-pane legs pos-5">
+ 
                       </div>
-                  </div>
-                  <span id="change" class = "greenButton">Add to Robot</span>
+                      <div id="tabs-5" class="tab-pane extras pos-6">
+
+                      <span class="greenButton" id="removeExtras">Remove Extras</span>
+                      </div>
+                      </div>
+                   
                 </div>  
                 <div id="myRobot" class="span5">
-                    
+              <span id="saveRobot" class="greenButton">Save Robot</>
                 </div>
+              
             </div>
-            
+          
 
-            <div class="actions align-right">
-             
-            </div>
-
-
+               
         </div>
 </body>
 </html>

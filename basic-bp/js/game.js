@@ -21,11 +21,13 @@ $(document).ready(function() {
       ]
       };
 
-      tutorialMessages = [{title: "Stove", message: "Put the pot on the stove.", source: '2', location: 'stoveTop'},
-      {title:"Combine", message: "Put the water in the pot.", source: '1', location: '2'},
-      {title: "Workspace", message: "Put the cake in the workspace.", source: '3', location: "workSpace"},
-      {title: "Serve", message: "Serve the cake!", source: '3', location: "botSpace"},
-      {title: "Tutorial Complete", message: "Great Job!" }]
+      tutorialMessages = [
+          {title: "Stove", message: "Put the pot on the stove.", source: '2', location: 'stoveTop'},
+          {title:"Combine", message: "Put the water in the pot.", source: '1', location: '2'},
+          {title: "Workspace", message: "Put the cake in the workspace.", source: '3', location: "workSpace"},
+          {title: "Serve", message: "Serve the cake!", source: '3', location: "botSpace"},
+          {title: "Tutorial Complete", message: "Great Job!" }];
+
       states = [];
       level = '';
       tutorialStep = 0;
@@ -139,23 +141,22 @@ function handleDrop(event, ui) {
 
 function handleTutorial(source, target) {
   
-          if ( tutorialMessages[tutorialStep].source == source && tutorialMessages[tutorialStep].location == target  ) {
-                 updateDialog( tutorialMessages[tutorialStep+1].title, tutorialMessages[tutorialStep+1].message);
-                if (tutorialStep != tutorialMessages.length -1) {
-                 tutorialStep++;
-             }
+    if ( tutorialMessages[tutorialStep].source == source && tutorialMessages[tutorialStep].location == target  ) {
+        updateDialog( tutorialMessages[tutorialStep+1].title, tutorialMessages[tutorialStep+1].message);
+                        
+            if (tutorialStep != tutorialMessages.length -1) {
+                tutorialStep++;
+              }
           }
 }
 
 
 function stripClone(name) {
-  var index = name.indexOf('-');
-  if ( index >= 0 ) {
-    return name[0,index-1]
-  }
-  else {
-    return name
-  }
+    var index = name.indexOf('-');
+   if ( index >= 0 ) {
+       return name[0,index-1];
+     }
+    return name;
 }
 
 
@@ -196,7 +197,6 @@ function init() {
 }
 
 function updateDialog(title, text) {
- $('#dialog').dialog('option','title', title)
-  .find('#message').text(text);
-  $('#dialog').dialog('open');
+      $('#dialog').dialog('option','title', title).find('#message').text(text);
+      $('#dialog').dialog('open');
 }
