@@ -21,7 +21,8 @@ $(document).ready(function() {
   });
 
   $('#signOutLink').click(function() {
-	user.n, user.p, user.u = '';
+	localStorage['user'] = "";
+	user.n, user.p, user.u = "";
 	updatePageForSignin();
 	return false;
   });
