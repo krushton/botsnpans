@@ -1,11 +1,11 @@
 $(document).ready(function() {
-      	
+      
       levels = {
       "Tutorial" : [ 
-           { url : 'water.jpg', id : 1, type : 'ingredient', parents: [0,0]},
-           { url : 'pot.jpg', id : 2, type : 'tool',  parents: [0,0]},
+           { url : 'water.png', id : 1, type : 'ingredient', parents: [0,0]},
+           { url : 'saucepan.png', id : 2, type : 'tool',  parents: [0,0]},
            { url : 'cake.jpg', id : 3, type : 'ingredient',  parents: [0,0], last: true},
-           { url: 'bowl.jpg', id : 4, type: 'tool', parents: [0,0]},
+           { url: 'bowl.png', id : 4, type: 'tool', parents: [0,0]},
            { url : 'potwithwater.jpg', id : 5, type : 'transition',  parents: [1,2]}
       ],
       "Ramen" : [ 
@@ -54,6 +54,8 @@ $(document).ready(function() {
       tutorialStep = 0;
       init();
 
+
+
      $('.item').css('z-index', 100);
 
      $('.item').draggable({
@@ -71,18 +73,19 @@ $(document).ready(function() {
      $('.dropbox').droppable({
         accepts : '.item',
         drop: function(event,ui) {
-            var offset = ui.helper.offset();
-            var thisOffset = $(this).offset();
-
             var id = $(ui.draggable).attr('id');
-            if (id.indexOf('clone') < 0 && $(this).find('#' + id).length == 0) {
+            
                  var elem = ui.helper.clone()
-                 .attr('id', id + "-clone")
+                 .attr('id', (id) + "-clone")
                  .removeClass('ui-draggable-dragging')
-                 .css({'left':offset.left - thisOffset.left, 'top':offset.top - thisOffset.top})
-                 .draggable()
+                 .css({'left': 0, "z-index": 99})
+                 .draggable({'helper':'clone'})
                  .droppable({accepts: '.item', greedy: true, drop: handleDrop});
-                 $(this).prepend(elem);
+                 $(this).append(elem);
+
+
+            if ( id.indexOf('clone') > 0 ) { 
+                $('#' + id).hide();
             }
             if (level == "Tutorial") {
                 handleTutorial(id, $(this).attr('id'));
@@ -109,8 +112,10 @@ $(document).ready(function() {
                   }
                  $('#botSpace').find('.item').remove();
                  $('#botSpace').append($(this).css('position', 'static'));
-
-              }
+                 $('#dialog').dialog({});
+                 updateDialog('You win!', 'Great job :) Click "Recipe Book" to go back to the menu.');
+                 return false;
+              } 
           });
      });
 
@@ -121,7 +126,7 @@ $(document).ready(function() {
       $( ".controls").change(function() {
             if ( $(this).children(':checked').val() == "on" ) {
 
-                var item = $(this).parent().find('.item');
+                var item = $(this).parent().find('.item:visible').first();
 
                 if (item != "undefined" && item.length == 1) {
                   var origId = item.attr('id');
@@ -133,7 +138,7 @@ $(document).ready(function() {
 
                        if (states[i].parents.indexOf(id) >= 0 && states[i].parents.indexOf(heatId) >= 0) {
 
-                           $('#' + origId).attr({'src': 'images/items/' + states[i].url, 'id' : states[i].id});
+                           $('#' + origId).attr({'src': 'images/items/' + states[i].url, 'id' : states[i].id + '-clone'});
                            break;
                         }
                    }
@@ -142,6 +147,56 @@ $(document).ready(function() {
               }
     });
 });
+
+
+function handleDrop(event, ui) {
+
+     var first = $(ui.draggable).attr('id');
+     var second = $(this).attr('id');
+
+
+   for (var i=0; i < states.length; i++) {
+     
+
+      var intone = parseInt(stripClone(first));
+      var inttwo = parseInt(stripClone(second));
+
+      var locFirst = states[i].parents.indexOf(intone);
+      var locSecond = states[i].parents.indexOf(inttwo);
+
+            
+      if (locFirst >= 0 && locSecond >= 0 && locFirst != locSecond) {
+        $('#' + second).attr({'src': 'images/items/' + states[i].url, 'id' : states[i].id + '-clone'});
+        break;
+      }
+   }
+
+     if (level == "Tutorial") {
+            handleTutorial(stripClone(first), stripClone(second));
+     }
+          
+ }
+
+
+function handleTutorial(source, target) {
+  
+          if ( tutorialMessages[tutorialStep].source == source && tutorialMessages[tutorialStep].location == target  ) {
+                 updateDialog( tutorialMessages[tutorialStep+1].title, tutorialMessages[tutorialStep+1].message);
+                if (tutorialStep != tutorialMessages.length -1) {
+                 tutorialStep++;
+             }
+          }
+}
+
+
+
+function stripClone(name) {
+    if (name.indexOf('-') >= 0) {
+        return name.split('-')[0];
+    }
+    return name;
+}
+
 
 function lookupHeat() {
 
@@ -153,115 +208,45 @@ function lookupHeat() {
   }
 }
 
-function handleDrop(event, ui) {
-
-      var first = $(ui.draggable).attr('id');
-      var second = $(this).attr('id');
-      var match = false;
-
-
-      var intone = parseInt(stripClone(first));
-      var inttwo = parseInt(stripClone(second));
-  
-
-       var offset = ui.helper.offset();
-       var parentOffset = $(this).parent().offset();
-
-       for (var i=0; i < states.length; i++) {
-
-            var locFirst = states[i].parents.indexOf(intone);
-            var locSecond = states[i].parents.indexOf(inttwo);
-
-              //note - this won't work if we ever decide to mix 2 of the same thing
-         if (locFirst >= 0 && locSecond >= 0 && locFirst != locSecond) {
-
-            if (first.indexOf('clone') >= 0) {
-              $('#' + first).hide();
-            }
-            
-            $('#' + second).attr({'src': 'images/items/' + states[i].url, 'id' : states[i].id + '-clone'});
-            match = true;
-            break;
-          }
-        }
-
-        var id = $(ui.draggable).attr('id');
-
-        if (!match && id.indexOf('clone') < 0 && $(this).find('#' + id).length == 0) {
-
-            var elem = ui.helper.clone()
-             .attr('id', id + "-clone")
-             .removeClass('ui-draggable-dragging')
-             .css({'left':offset.left - parentOffset.left, 'top':offset.top - parentOffset.top})
-             .draggable()
-             .droppable({accepts: '.item', greedy: true, drop: handleDrop});
-              $(this).after(elem);
-        }
-
-     if (level == "Tutorial") {
-            handleTutorial(stripClone(first), stripClone(second));
-     }
-          
- }
-
-
-function handleTutorial(source, target) {
-  
-    if ( tutorialMessages[tutorialStep].source == source && tutorialMessages[tutorialStep].location == target  ) {
-        updateDialog( tutorialMessages[tutorialStep+1].title, tutorialMessages[tutorialStep+1].message);
-                        
-            if (tutorialStep != tutorialMessages.length -1) {
-                tutorialStep++;
-              }
-          }
-}
-
-
-function stripClone(name) {
-    if (name.indexOf('-') >= 0) {
-        return name.split('-')[0];
-    }
-    return name;
-}
-
-
 
 function init() {
         hash = window.location.hash;
         level = hash.substring(1,hash.length);
-
+        console.log(level);
         $('#recipeName').text(level);
         states = levels[level];
 
-	      for (var i = 0; i < states.length; i++ ){
-      	if (states[i].type == 'ingredient') {
-      		$('#ingredients').append('<img class="item" src="' + 'images/items/' + states[i].url + '" id="' + states[i].id + '">');
-      	} 
-      	if (states[i].type == 'tool') {
-      		$('#tools').append('<img class="item" src="'  + 'images/items/' + states[i].url + '" id="' + states[i].id + '">');
-      	}
+        for (var i = 0; i < states.length; i++ ){
+        if (states[i].type == 'ingredient') {
+          $('#ingredients').append('<img class="item" src="' + 'images/items/' + states[i].url + '" id="' + states[i].id + '">');
+        } 
+        if (states[i].type == 'tool') {
+          $('#tools').append('<img class="item" src="'  + 'images/items/' + states[i].url + '" id="' + states[i].id + '">');
+        }
       }
-
-      if (level == 'Tutorial') {
-        $('#dialog').dialog({
-          autoOpen: true,
+      $('#dialog').dialog({
+          autoOpen: false,
           hide: 'fold',
-          title: tutorialMessages[0].title,
           width: 200,
-          height:120,
+          height:140,
           resizable: false
         });
 
-        $('#dialog').html('<p id="message">' + tutorialMessages[0].message + '</p>');
+       $('#dialog').html('<p id="message">' + tutorialMessages[0].message + '</p>');
         var closeButton = $('<span class="greenButton" style="width:40px;">OK</span>').bind("click", function() {
             $('#dialog').dialog('close');
         });
         $('#dialog').append(closeButton);
 
+      if (level == 'Tutorial') {
+        $('#dialog').dialog('option', title, tutorialMessages[0].title);
+        $('#dialog').dialog('option', autoOpen, true);
+ 
       }
 }
 
 function updateDialog(title, text) {
-      $('#dialog').dialog('option','title', title).find('#message').text(text);
-      $('#dialog').dialog('open');
+ $('#dialog').dialog('option','title', title)
+  .find('#message').text(text);
+  $('#dialog').dialog('open');
 }
