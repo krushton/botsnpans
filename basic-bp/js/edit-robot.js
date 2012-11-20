@@ -3,17 +3,25 @@ $(document).ready(function(){
 
 	/*------------------------------------ Initialization  */
 	robotParts = {
-		heads: [ { url: 'head.png', id: 1, position: 1, display:true}, 
-				 {url: 'headsquare.png', id:9, position:1, display:true }],
-		arms : [ { url: 'rightarm.png', id: 2, position: 2, display:true},
-				 { url: 'leftarm.png', id: 3, position: 4, display:true }],
-		bodies: [{ url: 'body.png', id: 4, position: 3, display:true},
-				 { url: 'bodydecor.png', id: 5, position: 3, display:true}],
-		legs : [{ url: 'legs.png', id: 6, position: 5, display:true},
-				 {url: 'legswheel.png', id:7, position:5, display:true}],
+		heads: [ { url: 'robot-head-silly.png', id: 1, position: 1, display:true}, 
+				 {url: 'robot-head-blue.png', id:9, position:1, display:true},
+				 {url: 'robot-head-dark.png', id:17, position:1, display:true }],
+		arms : [ { url: 'robot-arm-right.png', id: 2, position: 2, display:true},
+				 { url: 'robot-arm-left.png', id: 3, position: 4, display:true }],
+		bodies: [{ url: 'Robot-body-1.png', id: 4, position: 3, display:true},
+				 { url: 'Robot-body-2.png', id: 5, position: 3, display:true},
+				 { url: 'Robot-body-3.png', id: 11, position: 3, display:true}],
+		legs : [{ url: 'robot-legs-blue.png', id: 6, position: 5, display:true},
+				 {url: 'robot-legs-hover.png', id:12, position:5, display:true},
+				 {url: 'robot-legs-pink.png', id:13, position:5, display:true},
+				 {url: 'robot-legs-plungers.png', id:14, position:5, display:true},
+				 {url: 'robot-legs-springs.png', id:15, position:5, display:true},
+				 {url: 'robot-legs-unicycle.png', id:16, position:5, display:true}],
 		extras : [{url: 'nohat.png', id:10, position:6, display:false},
-				 { url: 'hat.png', id: 8, position: 6, display:true} ]
+				 { url: 'robot-accessories-chefHat.png', id: 8, position: 6, display:true} ]
 	};
+
+	
 
 	defaultBot = {
 		parts: [1, 2, 3, 4, 6, 10],
@@ -106,6 +114,7 @@ function loadRobotParts(currentBot) {
 				var clone = part.clone();
 				clone.attr('id', "target-" + val.position);  
 				clone.removeClass('bodypart');
+				clone.addClass('windowpart');
 				if (!val.display) {
 					clone.css('display', 'none');
 				}

@@ -54,26 +54,35 @@ h3,#robotName {
 #myRobot #target-1 {
 	display:block;
 	margin: 0 auto;
+	z-index:7;
 }
 #myRobot #target-2 {
 	display:inline-block;
-	z-index:5;
 }
 
 #myRobot #target-3 {
+	display:inline-block;
 	position:relative;
-	top:-200px;
-	left:80px;
-	z-index:1;
+	left:-100px;
+	z-index:5;
 }
 
-#myRobot #target-5 {
+#myRobot #target-4 {
+	display:inline-block;
 	position:relative;
-	right:80px;
-	top:-30px;
+	left:100px;
 }
 
 #myRobot #target-6 {
-	position:relative;
-	top:-550px;
+	position:absolute;
+	top:180px;
+	right:360px;
+}
+
+.bodypart {
+	width:50%;
+}
+
+.windowpart {
+	width:100px;
 }
