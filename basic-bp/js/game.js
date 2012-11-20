@@ -78,7 +78,7 @@ $(document).ready(function() {
                  var elem = ui.helper.clone()
                  .attr('id', (id) + "-clone")
                  .removeClass('ui-draggable-dragging')
-                 .css({'left': 0, "z-index": 99})
+                 .css({'left': 0, top:'-20', "z-index": 99})
                  .draggable({'helper':'clone'})
                  .droppable({accepts: '.item', greedy: true, drop: handleDrop});
                  $(this).append(elem);
@@ -93,6 +93,13 @@ $(document).ready(function() {
           
         }
      });
+
+     $('#levelCard').click(function() {
+          $("#dialog2").dialog({width: 600, draggable:false});
+          $("#dialog2").dialog('option','title', 'Recipe');
+          $("#dialog2").append('<img src="' + $(this).attr('src') + '">');
+          $("#dialog2").dialog('open');
+     })
 
      $('#serve').click(function() {
 
@@ -241,8 +248,8 @@ function init() {
         $('#dialog').append(closeButton);
 
       if (level == 'Tutorial') {
-        $('#dialog').dialog('option', title, tutorialMessages[0].title);
-        $('#dialog').dialog('option', autoOpen, true);
+        $('#dialog').dialog('option', 'title', tutorialMessages[0].title);
+        $('#dialog').dialog('open');
  
       }
 }
