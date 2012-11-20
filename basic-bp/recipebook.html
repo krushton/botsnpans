@@ -6,24 +6,45 @@
 <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
 <link rel="stylesheet" href="./css/main.css" type="text/css">
 <link rel="stylesheet" href="./css/recipebook.css" type="text/css">
-
+<link rel="stylesheet" href="css/modal.css" type="text/css">
+<script type="text/javascript" src='js/jquery-1.8.2.min.js'></script>
+<script type="text/javascript" src='js/modal.js'></script>
 
 </head>
 
 <body>
 <div id="wrapper">
-
+        <div id="modalIntro" class="modal hide fade">
+	        <div class='modal-header'>
+	        	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    			<h3>You Are the Chef of the Future!</h3>
+	        </div>
+	        <div class='modal-body'>
+		        <p>You are Chefbot 3000, a high-tech cooking bot programmed to serve humankind. Literally. Complete recipies, earn new tools, and build your skills to please your human overlord and earn the title of Master Robochef!</p>
+	        </div>
+	          <div class="modal-footer">
+			    <a class="btn btn-success btn-large" data-dismiss="modal">Let's Get Cooking!</a>
+			    
+			  </div>
+   		</div>	
 	<div id="content">	
         <header>
         	Bots and Pans
+            <div id="navigation" class="floatRight">
+                <!-- <a href="">Home</a> -->
+                <a href="recipebook.html">Recipe Book</a>
+            </div>
         </header>
+
+
+
 
         <div class="row">
 			<div class="span5">
 				<div class="row">
 					<div class="span4">
 						<h3 class="profileTitle">BonzoBot</h3>
-						<a href="#">Edit Robot</a> | <a href="#">Edit Account</a><br>
+						<a href="edit-robot.html">Edit Robot</a><!--  | <a href="#">Edit Account</a> --><br>
 						<img src="./images/robot-head.png">
 					</div>
 				</div>
@@ -62,7 +83,7 @@
 				<div class="accordion" id="levelChooser">
 					<h4>Tutorial</h4>
 					<div>
-						<span class="floatRight greenButton playButton">Cook!</span>
+						<a href='game-screen.html#Tutorial'><span class="floatRight greenButton playButton">Cook!</span></a>
 						<p>
 							Letterpress small batch etsy pour-over, gluten-free gentrify kale chips high life cosby sweater sartorial marfa odd future dreamcatcher selvage freegan.
 						</p>
@@ -70,7 +91,7 @@
 
 					<h4>Ramen</h4>
 		    		<div>
-		   				<span class="floatRight greenButton playButton">Cook!</span> 
+		   				<a href='game-screen.html#Ramen'><span class="floatRight greenButton playButton">Cook!</span> </a>
 				    	<p>
 				    		Pitchfork gluten-free PBR blog. 3 wolf moon pour-over quinoa, echo park vinyl next level williamsburg. Biodiesel forage salvia photo booth direct trade, shoreditch irony brunch mumblecore truffaut.
 				    	</p>
