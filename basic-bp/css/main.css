@@ -1,4 +1,4 @@
-/*@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);*/
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 
 * {
 	margin: 0;
@@ -47,6 +47,10 @@ header {
 	margin-left: -10px;
 }
 
+header h2 {
+	font-size: 2em;
+}
+
 header a {
 	font-family: 'Montserrat', Helvetica, sans-serif;
 	font-size: 1.3em;
@@ -58,6 +62,11 @@ header a:hover,
 header a.hover {
 	text-decoration: underline;
 }
+
+#logo {
+	margin: 17px 0 0 0;
+}
+
 
 #navigation {
 	margin: 20px 0 0 0;
