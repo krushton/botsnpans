@@ -110,8 +110,10 @@ $(document).ready(function() {
                 if (level == "Tutorial") {
                     handleTutorial($(this).attr('id'), "botSpace");
                   }
-                 $('#botSpace').find('.item').remove();
-                 $('#botSpace').append($(this).css('position', 'static'));
+                 $('#overlordSpace').find('.item').remove();
+                 $('#overlordSpace').find('img').first()
+                 .attr('src', 'images/overlord/happy.png')
+                 .after($(this).clone().css('position', 'static'));
                  $('#dialog').dialog({});
                  updateDialog('You win!', 'Great job :) Click "Recipe Book" to go back to the menu.');
                  return false;

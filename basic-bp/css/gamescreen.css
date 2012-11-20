@@ -48,7 +48,7 @@
 }
 
 #recipeName {
-	width: 50%;
+	width: 30%;
 	height: 100%;
 	font-family: 'Montserrat', Helvetica, sans-serif;
 	font-size: 4.5em;
@@ -104,4 +104,9 @@
 	height: 20px;
 	padding: 10px 10px 8px;
 	margin: 10px auto;
+}
+
+#botSpace {
+	position:relative;
+	top:30px;
 }
