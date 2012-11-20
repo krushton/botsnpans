@@ -224,7 +224,8 @@ function init() {
         console.log(level);
         $('#recipeName').text(level);
         states = levels[level];
-        $('#levelCard').src = 'images/levelcards/' + level + ".png";
+        console.log('')
+        $('#levelCard').attr('src', 'images/levelcards/' + level + '.png');
 
         for (var i = 0; i < states.length; i++ ){
         if (states[i].type == 'ingredient') {
