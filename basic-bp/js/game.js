@@ -32,7 +32,7 @@ $(document).ready(function() {
            { url: 'fryingpanwithbutter.jpg', id: 8, type:'transition', parents: [6,7]},
            { url: 'heat.jpg', id: 9, type:'transition', parents: [0,0]},
            { url: 'hotskillet.jpg', id: 10, type:'transition', parents: [8,9]},
-           { url: 'pancakeinpan.jpg', id: 11, type:'transition', parents: [10,5]},
+           { url: 'pancakeinpan.jpg', id: 11, type:'transition', parents: [10,15]},
            { url: 'spatula.jpg', id: 16, type:'tool', parents: [0,0]},
            { url: 'flippedpancake.jpg', id: 17, type:'transition', parents: [11,16]},
            { url: 'plate.jpg', id: 12, type:'tool', parents: [0,0]},
@@ -71,15 +71,18 @@ $(document).ready(function() {
      $('.dropbox').droppable({
         accepts : '.item',
         drop: function(event,ui) {
+            var offset = ui.helper.offset();
+            var thisOffset = $(this).offset();
+
             var id = $(ui.draggable).attr('id');
             if (id.indexOf('clone') < 0 && $(this).find('#' + id).length == 0) {
                  var elem = ui.helper.clone()
                  .attr('id', id + "-clone")
                  .removeClass('ui-draggable-dragging')
-                 .css({'left': 0, 'z-index': 99, 'top':20})
+                 .css({'left':offset.left - thisOffset.left, 'top':offset.top - thisOffset.top})
                  .draggable()
                  .droppable({accepts: '.item', greedy: true, drop: handleDrop});
-                 $(this).append(elem);
+                 $(this).prepend(elem);
             }
             if (level == "Tutorial") {
                 handleTutorial(id, $(this).attr('id'));
@@ -155,18 +158,27 @@ function handleDrop(event, ui) {
       var first = $(ui.draggable).attr('id');
       var second = $(this).attr('id');
       var match = false;
-      var position = $(this).position();
+
 
       var intone = parseInt(stripClone(first));
       var inttwo = parseInt(stripClone(second));
-      console.log(position);
+  
+
+       var offset = ui.helper.offset();
+       var parentOffset = $(this).parent().offset();
 
        for (var i=0; i < states.length; i++) {
-    
-         if (states[i].parents.indexOf(intone) >= 0 && states[i].parents.indexOf(inttwo) >= 0) {
+
+            var locFirst = states[i].parents.indexOf(intone);
+            var locSecond = states[i].parents.indexOf(inttwo);
+
+              //note - this won't work if we ever decide to mix 2 of the same thing
+         if (locFirst >= 0 && locSecond >= 0 && locFirst != locSecond) {
+
             if (first.indexOf('clone') >= 0) {
               $('#' + first).hide();
             }
+            
             $('#' + second).attr({'src': 'images/items/' + states[i].url, 'id' : states[i].id + '-clone'});
             match = true;
             break;
@@ -180,10 +192,9 @@ function handleDrop(event, ui) {
             var elem = ui.helper.clone()
              .attr('id', id + "-clone")
              .removeClass('ui-draggable-dragging')
-             .css({'left': 0, 'z-index': 99, 'top': 20})
+             .css({'left':offset.left - parentOffset.left, 'top':offset.top - parentOffset.top})
              .draggable()
              .droppable({accepts: '.item', greedy: true, drop: handleDrop});
-
               $(this).after(elem);
         }
 
