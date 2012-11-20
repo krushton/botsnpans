@@ -9,21 +9,21 @@ $(document).ready(function() {
            { url : 'potwithwater.jpg', id : 5, type : 'transition',  parents: [1,2]}
       ],
       "Ramen" : [ 
-           { url : 'water.jpg', id : 1, type : 'ingredient', parents: [0,0]},
-           { url : 'ramen.jpg', id : 2, type : 'ingredient', parents: [0,0]},
-           { url : 'pot.jpg', id : 3, type : 'tool',  parents: [0,0]},
+           { url : 'water.png', id : 1, type : 'ingredient', parents: [0,0]},
+           { url : 'ramen.png', id : 2, type : 'ingredient', parents: [0,0]},
+           { url : 'saucepan.png', id : 3, type : 'tool',  parents: [0,0]},
            { url : 'heat.jpg', id : 4, type : 'transition',  parents: [0,0]},
            { url : 'potwithwater.jpg', id: 5, type : 'transition', parents: [1, 3] },
            { url : 'boilingwater.jpg', id: 6, type : 'transition', parents: [4, 5] },
            { url : 'rameninpot.jpg', id: 7, type : 'transition', parents: [6, 2] },
            { url : 'rameninbowl.jpg', id: 8, type: 'transition', parents: [7, 9], last: true},
-           { url: 'bowl.jpg', id : 9, type: 'tool', parents: [0,0]}
+           { url: 'bowl.png', id : 9, type: 'tool', parents: [0,0]}
       ],
       "Pancakes" : [ 
            { url : 'pancakemix.jpg', id: 1, type: 'ingredient', parents: [0,0]},
-           { url : 'bowl.jpg', id: 2, type: 'tool', parents: [0,0]},
+           { url : 'bowl.png', id: 2, type: 'tool', parents: [0,0]},
            { url: 'flourinbowl.jpg', id: 3, type:'transition', parents: [1,2]},
-           { url: 'water.jpg', id: 4, type: 'ingredient', parents: [0,0]},
+           { url: 'water.png', id: 4, type: 'ingredient', parents: [0,0]},
            { url: 'wetmix.jpg', id: 5, type:'transition', parents: [3,4]},
            { url: 'whisk.jpg', id: 14, type: 'tool', parents: [0,0]},
            { url: 'batter.jpg', id: 15, type: 'transition', parents: [5, 14]},
