@@ -80,7 +80,8 @@ h3,#robotName {
 }
 
 .bodypart {
-	width:50%;
+	width:30%;
+    padding-right:10px;
 }
 
 .windowpart {
