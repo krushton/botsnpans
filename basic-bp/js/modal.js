@@ -1,6 +1,11 @@
 
 $(document).ready(function(){
-    $('#modalIntro').modal('show')
     
-    })
+    var modalSeen = localStorage['seenModal']
+    if (modalSeen != "true") {
+        $('#modalIntro').modal('show')
+    }; 
+    localStorage['seenModal'] = true;
+    
+})
     
