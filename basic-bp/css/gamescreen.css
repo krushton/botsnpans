@@ -27,12 +27,12 @@
 	position: relative;
 }
 
-.column h3 {
+.column h4 {
 	width: 100%;
 	text-align: center;
 	position: absolute;
 	left: 0;
-	bottom: 10px;
+	bottom: 0;
 }
 
 

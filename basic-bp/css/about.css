@@ -1,0 +1,18 @@
+#about {
+	margin: 25px 0 0;
+}
+
+#aboutContent {
+	width: 800px;
+	margin: 0 auto;
+}
+
+#ourTeam {
+	height: 280px;
+	margin-top: 25px;
+	overflow: auto;
+}
+
+#ourTeam div {
+	text-align: center;
+}
