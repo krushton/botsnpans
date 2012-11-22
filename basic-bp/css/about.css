@@ -1,18 +1,30 @@
 #about {
-	margin: 25px 0 0;
+	overflow: auto;
 }
 
 #aboutContent {
-	width: 800px;
-	margin: 0 auto;
+	width: 520px;
+}
+
+#aboutLogo {
+	width: 400px;
+	height: 170px;
+	background-image: url('../images/logo.png');
+	background-repeat: no-repeat;
+	margin: 0 0 0 35px;
 }
 
 #ourTeam {
-	height: 280px;
-	margin-top: 25px;
 	overflow: auto;
 }
 
 #ourTeam div {
 	text-align: center;
+	width: 178px;
+	margin-right: 14px;
+	float: left;
+}
+
+.profileLast {
+	margin-right: 0;
 }
