@@ -1,18 +1,24 @@
+#levels {
+	width: 540px;
+	margin-right: 25px;
+}
+
 #levelChooser {
 	margin: 0;
 	padding: 0;
 	height: 525px;
 	width: 100%;
 	padding-left: 15px;
-	border-left: 1px solid black;
+	border-left: 1px solid #CFCFCF;
+	position: relative;
 }
 
 #levelChooser h4{
 	border-bottom: 2px solid red;
-	padding-top: 10px;
-	padding-bottom: 0px;
+	padding: 10px 0 0 0;
 	margin-bottom: 0px;
 	font-weight: bold;
+	background-color: #EFEFEF;
 }
 
 #levelChooser > div{;
@@ -22,12 +28,12 @@
 }
 
 #levelChooser p{
-	padding-top: 6px;
+	padding: 6px 0 0 10px;
 	line-height: 22px;
 }
 
-#levelChooser .ui-state-hover, .ui-state-active {
-	background-color: #aaa;
+#levelChooser .ui-state-active {
+	
 }
 
 #levelChooser .ui-state-focus{
@@ -35,8 +41,11 @@
 }
 
 .playButton {
-	padding: 10px;
-	margin: 10px 20px 20px 20px;
+	padding: 5px 10px;
+	margin: 3px 10px 20px 20px;
+	position: absolute;
+	top: 0;
+	right: 0;
 	z-index: 100;
 }
 
