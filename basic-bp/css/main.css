@@ -21,8 +21,8 @@ body {
 	width: 100%;
 	min-height: 100%;
 	font-family: Helvetica, Arial, sans-serif;
-	font-size: 14px;
-	color: #333333;
+	font-size: 15px;
+	color: #3F2E0E;
 	padding: 0;
 	background-image: url('../images/background.png');
 	background-attachment: fixed;
@@ -34,7 +34,7 @@ h3,
 h4,
 h5,
 h6 {
-	color: #333333;
+	color: #3F2E0E;
 	font-family: 'Montserrat';
 	margin: 15px 0;
 }
@@ -82,9 +82,10 @@ p {
 	width: 960px;
 	max-height: auto;
 	min-height: 300px;
-	background-color: white;
+	background-color: #FFFEFC;
 	margin: 0 auto 10px;
 	padding: 0 15px 0;
+	box-shadow: 0 0 20px #D1BF9E;
 	overflow: auto;
 }
 
@@ -99,7 +100,7 @@ header {
 header a {
 	font-family: 'Montserrat', Helvetica, sans-serif;
 	font-size: 1.3em;
-	color: white;
+	color: #FFFEFC;
 	text-decoration: none;
 }
 
