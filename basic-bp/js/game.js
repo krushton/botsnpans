@@ -1,5 +1,7 @@
 $(document).ready(function() {
       
+
+
       levels = {
       "Tutorial" : [ 
            { url : 'water.png', id : 1, type : 'ingredient', parents: [0,0]},
@@ -55,9 +57,6 @@ $(document).ready(function() {
       init();
 
 
-
-     $('.item').css('z-index', 100);
-
      $('.item').draggable({
         helper: 'clone'
      });
@@ -74,19 +73,34 @@ $(document).ready(function() {
         accepts : '.item',
         drop: function(event,ui) {
             var id = $(ui.draggable).attr('id');
-            
-                 var elem = ui.helper.clone()
-                 .attr('id', (id) + "-clone")
-                 .removeClass('ui-draggable-dragging')
-                 .css({'left': 0, top:'-20', "z-index": 99})
-                 .draggable({'helper':'clone'})
-                 .droppable({accepts: '.item', greedy: true, drop: handleDrop});
-                 $(this).append(elem);
+            var numid =  parseInt(stripClone(id));
+
+            var elem = ui.helper.clone()
+                    .attr('id', (id) + "-clone")
+                    .removeClass('ui-draggable-dragging')
+                    .css({'left': 0, top:'-20', "z-index": 99})
+                     .draggable({'helper':'clone'})
+                     .droppable({accepts: '.item', greedy: true, drop: handleDrop});
+                    $(this).append(elem);
 
 
-            if ( id.indexOf('clone') > 0 ) { 
-                $('#' + id).hide();
+            if ($(this).attr('id') == 'stoveTop' || $(this).attr('id') == 'oven') {
+
+                var heatId = parseInt(lookupHeat());
+              
+                for (var i =0; i < states.length; i++) {
+
+                  if (states[i].parents.indexOf(numid) >= 0 && states[i].parents.indexOf(heatId) >= 0) {
+                      $('#' + elem.attr('id')).attr({'src': 'images/items/' + states[i].url, 'id' : states[i].id + '-clone'});
+                  }
+               }
             }
+
+            if ( id.indexOf('clone') > 0) { 
+                $('#' + id).hide();
+
+            }
+
             if (level == "Tutorial") {
                 handleTutorial(id, $(this).attr('id'));
           }
@@ -119,41 +133,15 @@ $(document).ready(function() {
                   }
                  $('#overlordSpace').find('.item').remove();
                  $('#overlordSpace').find('img').first()
-                 .attr('src', 'images/overlord/happy.png')
-                 .after($(this).clone().css('position', 'static'));
-                 $('#dialog').dialog({});
+                  .attr('src', 'images/overlord/happy.png')
+                  .after($(this).clone().css('position', 'static'));
+                 
                  updateDialog('You win!', 'Great job :) Click "Recipe Book" to go back to the menu.');
+                $('#timer').countdown('pause');  
                  return false;
-              } 
-          });
+          }
      });
 
-
-      $( "#stovecontrol" ).buttonset();
-      $( "#ovencontrol" ).buttonset();
-
-      $( ".controls").change(function() {
-            if ( $(this).children(':checked').val() == "on" ) {
-
-                var item = $(this).parent().find('.item:visible').first();
-
-                if (item != "undefined" && item.length == 1) {
-                  var origId = item.attr('id');
-                  var id = parseInt(stripClone(item.attr('id')));
-
-                  var heatId = parseInt(lookupHeat());
-
-                   for (var i =0; i < states.length; i++) {
-
-                       if (states[i].parents.indexOf(id) >= 0 && states[i].parents.indexOf(heatId) >= 0) {
-
-                           $('#' + origId).attr({'src': 'images/items/' + states[i].url, 'id' : states[i].id + '-clone'});
-                           break;
-                        }
-                   }
-                }
-
-              }
     });
 });
 
@@ -173,16 +161,36 @@ function handleDrop(event, ui) {
       var locFirst = states[i].parents.indexOf(intone);
       var locSecond = states[i].parents.indexOf(inttwo);
 
-            
+      var newId = -1;
+
+      
       if (locFirst >= 0 && locSecond >= 0 && locFirst != locSecond) {
-        $('#' + second).attr({'src': 'images/items/' + states[i].url, 'id' : states[i].id + '-clone'});
+        newId = states[i].id;
+        $('#' + second).attr({'src': 'images/items/' + states[i].url, 'id' : newId + '-clone'});
         break;
       }
+
    }
 
      if (level == "Tutorial") {
             handleTutorial(stripClone(first), stripClone(second));
      }
+
+     if ($(this).parent().attr('id') == 'stoveTop' || $(this).attr('id') == 'oven') {
+
+          var heatId = parseInt(lookupHeat());
+              
+          for (var i =0; i < states.length; i++) {
+
+                  if (states[i].parents.indexOf(newId) >= 0 && states[i].parents.indexOf(heatId) >= 0) {
+
+                    setTimeout(function() {
+                      $('#' + newId + '-clone').attr({'src': 'images/items/' + states[i].url, 'id' : states[i].id + '-clone'});
+                    }, 500);
+                    break;
+                  }
+           }
+    }
           
  }
 
@@ -254,10 +262,27 @@ function init() {
         $('#dialog').dialog('open');
  
       }
+
+      $('#timer').countdown({
+          until: '+120',
+          format: 'MS',
+          description: 'Time Remaining',
+          onExpiry: function() {
+            updateDialog("Time's Up", "You ran out of time. The overlord is very displeased.");
+                  }
+        });
 }
 
 function updateDialog(title, text) {
- $('#dialog').dialog('option','title', title)
+
+  $('#dialog').dialog('option','title', title)
   .find('#message').text(text);
   $('#dialog').dialog('open');
+
 }
+
+
+function Game(levelName, isTutorial) {
+
+}
+

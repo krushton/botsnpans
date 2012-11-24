@@ -106,11 +106,23 @@
 	margin: 10px auto;
 }
 
+#questionMark {
+	font-size:30px;
+	font-weight:bold;
+	color:#000;
+	z-index:10;
+	position:relative;
+	top:-60px;
+	right:60px;
+}
+
 #levelCard {
 	width:100px;
 	position:relative;
 	top:-50px;
+	cursor: pointer;
 }
+
 .ui-dialog .ui-dialog-titlebar-close span {
 	color:#000;
 }

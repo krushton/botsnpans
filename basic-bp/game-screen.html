@@ -5,8 +5,11 @@
 <link rel="stylesheet" href="css/main.css" type="text/css">
 <link rel="stylesheet" href="css/gamescreen.css" type="text/css">
 <link rel="stylesheet" href="css/jquery-ui-1.9.1.custom.css" type="text/css">
+<link rel="stylesheet" href="css/jquery.countdown.css" type="text/css">
+
 <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript" src="js/jquery-ui-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.countdown.js"></script>
 <script type="text/javascript" src="js/game.js"></script>
 
 </head>
@@ -34,25 +37,19 @@
                 <img src="images/robot-small.png">              
             </div>
              <div>
-                <p><img src="images/levelcards/Ramen.png" id="levelCard"></p>
+                <p><img src="images/levelcards/Ramen.png" id="levelCard"><soan id="questionMark">?</span></p>
+
             </div>
         </div>    
 
         <div id="gameSpace">
             <div class="column floatLeft">
                 <div class="top dropbox" id="stoveTop">
+                    <div id="timer"></div>
                     <h4>Stove Top</h4>
-                       <div id="stovecontrol" class="controls">
-                      <input type="radio" id="stoveoff" name="stove" checked="checked" /><label for="stoveoff">Off</label>
-                      <input type="radio" id="stoveon" name="stove" /><label for="stoveon">On</label>
-                    </div>
                 </div>
                 <div class="top dropbox" id="oven">
                     <h4>Oven</h4>
-                    <div id="ovencontrol" class="controls">
-                      <input type="radio" id="ovenoff" name="oven" value="off" checked="checked" /><label for="ovenoff">Off</label>
-                      <input type="radio" id="ovenon" name="oven" value="on" /><label for="ovenon">On</label>
-                    </div>
                 </div>
             </div>
 
