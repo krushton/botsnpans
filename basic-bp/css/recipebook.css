@@ -50,6 +50,10 @@
 }
 
 /* profile styles */
+.profileBar {
+	width: 350px;
+}
+
 #profileStats, #profile{
 	padding: 0;
 }
@@ -64,13 +68,10 @@
 }
 
 #badgeContainer {
-	border: 1px solid #666;
+	width: 320px;
+	border: 0px solid #666;
 	margin: 0px;
 	padding: 0;
-	margin-left: 30px;
-	width: 320px;
-	height: 250px;
-	overflow-y: scroll;	
 }
 
 #badgeContainer > div {
