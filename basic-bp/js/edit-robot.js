@@ -64,20 +64,12 @@ $(document).ready(function(){
 	});
 
 
-	/*------------------------------------ Part switching interaction */
+	/*------------------------------------ Saving bot */
 		$('#saveRobot').click(function() {
 
-			var newName = $('#nameInput').val();
+			var newName = $('#nameInput').val().length >=1 ? $('#nameInput').val() : $('#userName').text();
+			var newBot = { name : newName, parts : [] };
 
-			if (newName.length < 1) {
-				newName = "Chefbot";
-			}
-			$('#nameInput').val('');
-
-			var newBot = {};
-			newBot.name = newName;
-
-			newBot.parts = [];
 			$('#myRobot img').each(function() {
 				newBot.parts.push($(this).data('id'));
 			});
@@ -85,6 +77,8 @@ $(document).ready(function(){
 			localStorage['robot'] = JSON.stringify(newBot);
 			console.log(localStorage['robot']);
 			loadRobotParts(newBot);
+
+			$('#nameInput').val('');
 		
 		return false;
 
