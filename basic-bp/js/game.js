@@ -162,6 +162,7 @@ $(document).ready(function() {
                  
                  updateDialog('You win!', 'Great job :) Click "Recipe Book" to go back to the menu.');
                 $('#timer').countdown('pause');  
+                $('.ring').css('border', '2px solid #000');
                  return false;
           }
              $('#overlordSpace').find('img').first()
