@@ -8,7 +8,9 @@ $(document).ready(function() {
            { url : 'saucepan.png', id : 2, type : 'tool',  parents: [0,0]},
            { url : 'cake.jpg', id : 3, type : 'ingredient',  parents: [0,0], last: true},
            { url: 'bowl.png', id : 4, type: 'tool', parents: [0,0]},
-           { url : 'potwithwater.jpg', id : 5, type : 'transition',  parents: [1,2]}
+           { url : 'potwithwater.jpg', id : 5, type : 'transition',  parents: [1,2]},
+           { url : 'boilingwater.jpg', id: 6, type : 'transition', parents: [7, 5]},
+           { url : 'heat.jpg', id : 7, type : 'transition',  parents: [0,0]}
       ],
       "Ramen" : [ 
            { url : 'water.png', id : 1, type : 'ingredient', parents: [0,0]},
@@ -45,7 +47,7 @@ $(document).ready(function() {
       };
 
       tutorialMessages = [
-          {title: "Stove", message: "Put the pot on the stove.", source: '2', location: 'stoveTop'},
+          {title: "Stove", message: "Put the pot on the stove.", source: '2', location: 'burner'},
           {title:"Combine", message: "Put the water in the pot.", source: '1', location: '2'},
           {title: "Workspace", message: "Put the cake in the workspace.", source: '3', location: "workSpace"},
           {title: "Serve", message: "Serve the cake!", source: '3', location: "botSpace"},
@@ -72,19 +74,36 @@ $(document).ready(function() {
      $('.dropbox').droppable({
         accepts : '.item',
         drop: function(event,ui) {
+            
             var id = $(ui.draggable).attr('id');
             var numid =  parseInt(stripClone(id));
+
+            var newPosX, newPosY = 0;
+
+            if ( $(this).hasClass('burner') || $(this).attr('id') == 'oven') {
+                newPosX = ui.offset.left - $(this).parent().parent().offset().left;
+                newPosY = ui.offset.top - $(this).parent().parent().offset().top;
+            } else {
+                newPosX = ui.offset.left - $(this).offset().left;
+                newPosY = ui.offset.top - $(this).offset().top;
+            }
 
             var elem = ui.helper.clone()
                     .attr('id', (id) + "-clone")
                     .removeClass('ui-draggable-dragging')
-                    .css({'left': 0, top:'-20', "z-index": 99})
-                     .draggable({'helper':'clone'})
-                     .droppable({accepts: '.item', greedy: true, drop: handleDrop});
+                    .draggable({'helper':'clone'})
+                    .droppable({accepts: '.item', greedy: true, drop: handleDrop});
+
+                     elem.css({
+                      'position': 'absolute', 
+                      'left': newPosX,
+                      'top' : newPosY
+                   });
+
                     $(this).append(elem);
 
 
-            if ($(this).attr('id') == 'stoveTop' || $(this).attr('id') == 'oven') {
+            if ($(this).hasClass('burner') || $(this).attr('id') == 'oven') {
 
                 var heatId = parseInt(lookupHeat());
               
@@ -102,7 +121,14 @@ $(document).ready(function() {
             }
 
             if (level == "Tutorial") {
-                handleTutorial(id, $(this).attr('id'));
+                var target = '';
+                if ($(this).attr('id')) {
+                   target = $(this).attr('id');
+                } else {
+                   target = $(this).attr('class').split(' ')[0];
+                }
+                console.log(target);
+                handleTutorial(id, target);
           }
           
         }
@@ -128,9 +154,7 @@ $(document).ready(function() {
 
           $('.item').each(function() {
               if (parseInt(stripClone($(this).attr('id'))) == finalId) {
-                if (level == "Tutorial") {
-                    handleTutorial($(this).attr('id'), "botSpace");
-                  }
+
                  $('#overlordSpace').find('.item').remove();
                  $('#overlordSpace').find('img').first()
                   .attr('src', 'images/overlord/happy.png')
@@ -140,6 +164,9 @@ $(document).ready(function() {
                 $('#timer').countdown('pause');  
                  return false;
           }
+             $('#overlordSpace').find('img').first()
+                  .attr('src', 'images/overlord/angry.png');
+
      });
 
     });
@@ -176,7 +203,7 @@ function handleDrop(event, ui) {
             handleTutorial(stripClone(first), stripClone(second));
      }
 
-     if ($(this).parent().attr('id') == 'stoveTop' || $(this).attr('id') == 'oven') {
+     if ($(this).parent().hasClass('burner') || $(this).attr('id') == 'oven') {
 
           var heatId = parseInt(lookupHeat());
               
@@ -229,47 +256,49 @@ function lookupHeat() {
 function init() {
         hash = window.location.hash;
         level = hash.substring(1,hash.length);
-        console.log(level);
+
         $('#recipeName').text(level);
         states = levels[level];
-        console.log('')
+
         $('#levelCard').attr('src', 'images/levelcards/' + level + '.png');
 
         for (var i = 0; i < states.length; i++ ){
-        if (states[i].type == 'ingredient') {
-          $('#ingredients').append('<img class="item" src="' + 'images/items/' + states[i].url + '" id="' + states[i].id + '">');
-        } 
-        if (states[i].type == 'tool') {
-          $('#tools').append('<img class="item" src="'  + 'images/items/' + states[i].url + '" id="' + states[i].id + '">');
-        }
+          if (states[i].type == 'ingredient') {
+             $('#ingredients').append('<img class="item" src="' + 'images/items/' + states[i].url + '" id="' + states[i].id + '">');
+          } 
+          if (states[i].type == 'tool') {
+              $('#tools').append('<img class="item" src="'  + 'images/items/' + states[i].url + '" id="' + states[i].id + '">');
+          }
       }
+
       $('#dialog').dialog({
           autoOpen: false,
           hide: 'fold',
-          width: 200,
+          width: 300,
           height:140,
           resizable: false
         });
 
-       $('#dialog').html('<p id="message">' + tutorialMessages[0].message + '</p>');
+       $('#dialog').html('<p id="message">' + tutorialMessages[0].message + '</p>'); 
         var closeButton = $('<span class="greenButton" style="width:40px;">OK</span>').bind("click", function() {
             $('#dialog').dialog('close');
         });
         $('#dialog').append(closeButton);
 
-      if (level == 'Tutorial') {
-        $('#dialog').dialog('option', 'title', tutorialMessages[0].title);
-        $('#dialog').dialog('open');
- 
-      }
+        if (level == 'Tutorial') {
+          $('#dialog').dialog('option', 'title', tutorialMessages[0].title);
+          $('#dialog').dialog('open');
+   
+        }
 
-      $('#timer').countdown({
-          until: '+120',
-          format: 'MS',
-          description: 'Time Remaining',
-          onExpiry: function() {
-            updateDialog("Time's Up", "You ran out of time. The overlord is very displeased.");
-                  }
+        $('#timer').countdown({
+            until: '+120',
+            format: 'MS',
+            description: 'Time Remaining',
+            onExpiry: function() {
+              updateDialog("Time's Up", "You ran out of time. The overlord is very displeased.");
+
+                    }
         });
 }
 
@@ -281,8 +310,6 @@ function updateDialog(title, text) {
 
 }
 
-
-function Game(levelName, isTutorial) {
+function updateOverlord() {
 
 }
-
