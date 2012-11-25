@@ -97,7 +97,7 @@ header {
 	margin: 0 0 10px -15px;
 }
 
-header a {
+header a, a {
 	font-family: 'Montserrat', Helvetica, sans-serif;
 	font-size: 1.3em;
 	color: #FFFEFC;
