@@ -161,16 +161,16 @@ $(document).ready(function() {
           $('.item').each(function() {
               if (parseInt(stripClone($(this).attr('id'))) == finalId) {
 
-                 $('#overlordSpace').find('.item').remove();
-                 $('#overlordSpace').find('img').first()
+                $('#overlordSpace').find('.item').remove();
+                $('#overlordSpace').find('img').first()
                   .attr('src', 'images/overlord/happy.png')
                   .after($(this).clone().css('position', 'static'));
                  
-                 updateDialog('You win!', 'Great job :) Click "Recipe Book" to go back to the menu.');
+                updateDialog('You win!', 'Great job :) Click "Recipe Book" to go back to the menu.');
+                $('.ring').css('border', '2px solid #000');
 
                 if (isTimed) {
                     $('#timer').countdown('pause');  
-                    $('.ring').css('border', '2px solid #000');
                 }
                return false;
           }
