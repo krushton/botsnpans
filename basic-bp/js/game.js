@@ -8,7 +8,7 @@ $(document).ready(function() {
            { url : 'saucepan.png', id : 2, type : 'tool',  parents: [0,0]},
            { url : 'cheese.jpg', id : 3, type : 'ingredient',  parents: [0,0], last: true},
            { url: 'bowl.png', id : 4, type: 'tool', parents: [0,0]},
-           { url : 'potwithwater.jpg', id : 5, type : 'transition',  parents: [1,2]},
+           { url : 'saucepan-withwater.png', id : 5, type : 'transition',  parents: [1,2]},
            { url : 'saucepan-boiling.png', id: 6, type : 'transition', parents: [7, 5]},
            { url : 'heat.jpg', id : 7, type : 'transition',  parents: [0,0]}
       ],
@@ -18,8 +18,8 @@ $(document).ready(function() {
            { url : 'saucepan.png', id : 3, type : 'tool',  parents: [0,0]},
            { url : 'heat.jpg', id : 4, type : 'transition',  parents: [0,0]},
            { url : 'saucepan-withwater.png', id: 5, type : 'transition', parents: [1, 3] },
-           { url : 'boilingwater.jpg', id: 6, type : 'transition', parents: [4, 5] },
-           { url : 'rameninpot.jpg', id: 7, type : 'transition', parents: [6, 2] },
+           { url : 'saucepan-boiling.png', id: 6, type : 'transition', parents: [4, 5] },
+           { url : 'saucepan-withramen.png', id: 7, type : 'transition', parents: [6, 2] },
            { url : 'bowl-withramen.png', id: 8, type: 'transition', parents: [7, 9], last: true},
            { url: 'bowl.png', id : 9, type: 'tool', parents: [0,0]}
       ],
@@ -36,7 +36,7 @@ $(document).ready(function() {
            { url: 'fryingpanwithbutter.png', id: 8, type:'transition', parents: [6,7]},
            { url: 'heat.png', id: 9, type:'transition', parents: [0,0]},
            { url: 'hotskillet.png', id: 10, type:'transition', parents: [8,9]},
-           { url: 'pancakeinpan.png', id: 11, type:'transition', parents: [10,15]},
+           { url: 'pancake-inpan.png', id: 11, type:'transition', parents: [10,15]},
            { url: 'spatula.png', id: 16, type:'tool', parents: [0,0]},
            { url: 'flippedpancake.png', id: 17, type:'transition', parents: [11,16]},
            { url: 'plate.png', id: 12, type:'tool', parents: [0,0]},
