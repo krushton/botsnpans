@@ -56,7 +56,7 @@ $(document).ready(function() {
 
       states = [];
       level = '';
-      isTimed = false;
+      zenMode = false;
       tutorialStep = 0;
       init();
 
@@ -170,7 +170,7 @@ $(document).ready(function() {
                 updateDialog('You win!', 'Great job :) Click "Recipe Book" to go back to the menu.');
                 $('.ring').css('border', '2px solid #000');
 
-                if (isTimed) {
+                if (!zenMode) {
                     $('#timer').countdown('pause');  
                 }
                return false;
@@ -266,7 +266,7 @@ function lookupHeat() {
 
 function init() {
         hash = window.location.hash;
-        isTimed = window.location.search.split('=')[1] === 'true';
+        zenMode = window.location.search.split('=')[1] === 'false';
         level = hash.substring(1,hash.length);
 
         $('#recipeName').text(level);
@@ -302,7 +302,7 @@ function init() {
           $('#dialog').dialog('open');
    
         }
-        if (isTimed) {
+        if (!zenMode) {
 
             $('#timer').countdown({
                 until: '+120',
