@@ -75,10 +75,12 @@ $(document).ready(function(){
 			});
 
 			localStorage['robot'] = JSON.stringify(newBot);
-			console.log(localStorage['robot']);
 			loadRobotParts(newBot);
 
 			$('#nameInput').val('');
+			$('#message').css('display', 'inline-block');
+			setTimeout(	function() {
+				$('#message').hide() }, 1500); 
 		
 		return false;
 
