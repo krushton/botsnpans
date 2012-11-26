@@ -1,7 +1,7 @@
 #levels {
 	width: 540px;
-	margin-right: 25px;
-	padding: 0 0 20px 0;
+	margin: 0 25px 20px 0;
+	border-left: 1px solid #CFCFCF;
 }
 
 #levelChooser {
@@ -10,7 +10,6 @@
 	height: 525px;
 	width: 100%;
 	padding-left: 15px;
-	border-left: 1px solid #CFCFCF;
 	position: relative;
 }
 
@@ -44,10 +43,15 @@
 .playButton {
 	padding: 5px 10px;
 	margin: 3px 10px 20px 20px;
-	position: absolute;
 	top: 0;
 	right: 0;
 	z-index: 100;
+}
+
+#editButton {
+	width: 200px;
+	padding: 5px 10px;
+	margin: 3px 10px 20px 20px;
 }
 
 /* profile styles */
