@@ -135,6 +135,11 @@ $(document).ready(function() {
         }
      });
 
+      // Restart button reloads the page
+     $("#restartButton").click(function(){
+        document.location.reload();
+     })    
+
      $('#levelCard').click(function() {
           $("#dialog2").dialog({width: 600, draggable:false});
           $("#dialog2").dialog('option','title', 'Recipe');
