@@ -55,6 +55,7 @@ $(document).ready(function() {
 
       states = [];
       level = '';
+      isTimed = false;
       tutorialStep = 0;
       init();
 
@@ -161,9 +162,12 @@ $(document).ready(function() {
                   .after($(this).clone().css('position', 'static'));
                  
                  updateDialog('You win!', 'Great job :) Click "Recipe Book" to go back to the menu.');
-                $('#timer').countdown('pause');  
-                $('.ring').css('border', '2px solid #000');
-                 return false;
+
+                if (isTimed) {
+                    $('#timer').countdown('pause');  
+                    $('.ring').css('border', '2px solid #000');
+                }
+               return false;
           }
              $('#overlordSpace').find('img').first()
                   .attr('src', 'images/overlord/angry.png');
@@ -256,6 +260,7 @@ function lookupHeat() {
 
 function init() {
         hash = window.location.hash;
+        isTimed = window.location.search.split('=')[1] === 'true';
         level = hash.substring(1,hash.length);
 
         $('#recipeName').text(level);
@@ -276,7 +281,7 @@ function init() {
           autoOpen: false,
           hide: 'fold',
           width: 300,
-          height:140,
+          height:160,
           resizable: false
         });
 
@@ -291,16 +296,19 @@ function init() {
           $('#dialog').dialog('open');
    
         }
+        if (isTimed) {
 
-        $('#timer').countdown({
-            until: '+120',
-            format: 'MS',
-            description: 'Time Remaining',
-            onExpiry: function() {
-              updateDialog("Time's Up", "You ran out of time. The overlord is very displeased.");
+            $('#timer').countdown({
+                until: '+120',
+                format: 'MS',
+                description: 'Time Remaining',
+                onExpiry: function() {
+                  updateDialog("Time's Up", "You ran out of time. The overlord is very displeased.");
 
-                    }
-        });
+                        }
+            });
+
+        }
 }
 
 function updateDialog(title, text) {
