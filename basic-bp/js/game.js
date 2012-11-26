@@ -36,7 +36,7 @@ $(document).ready(function() {
            { url: 'fryingpanwithbutter.png', id: 8, type:'transition', parents: [6,7]},
            { url: 'heat.png', id: 9, type:'transition', parents: [0,0]},
            { url: 'hotskillet.png', id: 10, type:'transition', parents: [8,9]},
-           { url: 'pancakeinpan.png', id: 11, type:'transition', parents: [10,15]},
+           { url: 'pancake-inpan.png', id: 11, type:'transition', parents: [10,15]},
            { url: 'spatula.png', id: 16, type:'tool', parents: [0,0]},
            { url: 'flippedpancake.png', id: 17, type:'transition', parents: [11,16]},
            { url: 'plate.png', id: 12, type:'tool', parents: [0,0]},
