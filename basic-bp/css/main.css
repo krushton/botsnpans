@@ -161,7 +161,7 @@ footer {
 .greenButton a,
 a:hover,
 a:active,
-a:visited, {
+a:visited {
 	color: white;
 	text-decoration: none;
 }

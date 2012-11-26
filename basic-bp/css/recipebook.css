@@ -48,10 +48,10 @@
 	z-index: 100;
 }
 
-#editButton {
-	width: 200px;
+#editRobot {
+	width: 70px;
 	padding: 5px 10px;
-	margin: 3px 10px 20px 20px;
+	margin: 0 10px 0 15px;
 }
 
 /* profile styles */
@@ -81,6 +81,11 @@
 
 #badgeContainer > div {
 	margin: 20px;
+}
+
+#profilePicture {
+	width: 100%;
+	overflow: auto;
 }
 
 
