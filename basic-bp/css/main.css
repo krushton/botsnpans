@@ -158,10 +158,11 @@ footer {
 	border-bottom: 1px solid #B8EDB1;
 }
 
+
 .greenButton a,
-a:hover,
-a:active,
-a:visited {
+header a:hover,
+header a:active,
+header a:visited {
 	color: white;
 	text-decoration: none;
 }
