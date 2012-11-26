@@ -44,7 +44,8 @@
 }
 
 .item {
-	height:70px;
+	max-width:100px;
+	max-height:70px;
 }
 
 .burner {
