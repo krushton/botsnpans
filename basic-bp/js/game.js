@@ -1,6 +1,7 @@
 $(document).ready(function() {
       
 
+      //global data
 
       levels = {
       "Tutorial" : [ 
@@ -61,7 +62,7 @@ $(document).ready(function() {
 
       init();
 
-
+      //setup draggable and droppable items
      $('.item').draggable({
         helper: 'clone'
      });
@@ -83,14 +84,17 @@ $(document).ready(function() {
 
             var newPosX, newPosY = 0;
 
+            //find the correct position for the dropped element
             if ( $(this).hasClass('burner') || $(this).attr('id') == 'oven') {
                 newPosX = ui.offset.left - $(this).parent().parent().offset().left;
                 newPosY = ui.offset.top - $(this).parent().parent().offset().top;
             } else {
                 newPosX = ui.offset.left - $(this).offset().left;
-                newPosY = ui.offset.top - $(this).offset().top;
+                newPosY
+                 = ui.offset.top - $(this).offset().top;
             }
 
+            //clone the element and append to the target droppable
             var elem = ui.helper.clone()
                     .attr('id', (id) + "-clone")
                     .removeClass('ui-draggable-dragging')
@@ -105,7 +109,7 @@ $(document).ready(function() {
 
                     $(this).append(elem);
 
-
+            //special case for items dropped on stove, which automatically check for a match 
             if ($(this).hasClass('burner') || $(this).attr('id') == 'oven') {
 
                 var heatId = parseInt(lookupHeat());
@@ -121,11 +125,15 @@ $(document).ready(function() {
                }
             }
 
+            //hide the original
             if ( id.indexOf('clone') > 0) { 
                 $('#' + id).hide();
 
             }
 
+            //messy. normally we have only IDs to check but for the stove we could drop on either one of the 
+            //droppable burners, which have a shared class
+            
             if (level == "Tutorial") {
                 var target = '';
                 if ($(this).attr('id')) {
@@ -145,6 +153,7 @@ $(document).ready(function() {
         document.location.reload();
      })    
 
+    //the user can click to re-display the level card
      $('#levelCard').click(function() {
           $("#dialog2").dialog({width: 600, draggable:false});
           $("#dialog2").dialog('option','title', 'Recipe');
@@ -152,10 +161,13 @@ $(document).ready(function() {
           $("#dialog2").dialog('open');
      })
 
+
+     //when the serve button is clicked, check if the user has succesfully created the target item
      $('#serve').click(function() {
 
           var finalId = 0;
 
+          //find the final state in the list
           for (var i = 0; i < states.length; i++ ){
             if (states[i].last) 
             {
@@ -163,6 +175,8 @@ $(document).ready(function() {
             }
           }
 
+        // right now the user does not have to designate an item to serve. 
+        // if the correct one is on the page it is served otherwise nothing is served 
           $('.item').each(function() {
               if (parseInt(stripClone($(this).attr('id'))) == finalId) {
 
@@ -179,8 +193,16 @@ $(document).ready(function() {
                 }
                return false;
           }
+
+          //if nothing is served the overlord is angry 
+
              $('#overlordSpace').find('img').first()
                   .attr('src', 'images/overlord/angry.png');
+
+              setTimeout(function() {
+                  $('#overlordSpace').find('img').first()
+                  .attr('src', 'images/overlord/skeptical-smaller.png')
+              }, 1000);
 
      });
 
@@ -193,8 +215,8 @@ function handleDrop(event, ui) {
      var first = $(ui.draggable).attr('id');
      var second = $(this).attr('id');
 
-
-   for (var i=0; i < states.length; i++) {
+     //check if there is a match with these two items
+    for (var i=0; i < states.length; i++) {
      
 
       var intone = parseInt(stripClone(first));
@@ -205,20 +227,21 @@ function handleDrop(event, ui) {
 
       var newId = -1;
 
-      
-      if (locFirst >= 0 && locSecond >= 0 && locFirst != locSecond) {
-        newId = states[i].id;
-        $('#' + second).attr({'src': 'images/items/' + states[i].url, 'id' : newId + '-clone'});
-        break;
-      }
+        //if a is in the array and b is in the array and each item checked is unique
+        if (locFirst >= 0 && locSecond >= 0 && locFirst != locSecond) {
+            newId = states[i].id;
+            $('#' + second).attr({'src': 'images/items/' + states[i].url, 'id' : newId + '-clone'});
+            break;
+        }
 
-   }
+    }
 
-     if (level == "Tutorial") {
+    if (level == "Tutorial") {
             handleTutorial(stripClone(first), stripClone(second));
-     }
+    }
 
-     if ($(this).parent().hasClass('burner') || $(this).attr('id') == 'oven') {
+    //special case for burner - items that change when heat is applied should automatically update after a delay
+    if ($(this).parent().hasClass('burner') || $(this).attr('id') == 'oven') {
 
           var heatId = parseInt(lookupHeat());
               
@@ -269,13 +292,16 @@ function lookupHeat() {
 
 
 function init() {
+        
+        //pull data from url
         hash = window.location.hash;
         zenMode = window.location.search.split('=')[1] === 'false';
         level = hash.substring(1,hash.length);
 
+
+        //setup level name and items
         $('#recipeName').text(level);
         states = levels[level];
-
         $('#levelCard').attr('src', 'images/levelcards/' + level + '.png');
 
         for (var i = 0; i < states.length; i++ ){
@@ -285,9 +311,11 @@ function init() {
           if (states[i].type == 'tool') {
               $('#tools').append('<img class="item" src="'  + 'images/items/' + states[i].url + '" id="' + states[i].id + '">');
           }
-      }
+        }
 
-      $('#dialog').dialog({
+
+      // initialize dialog
+       $('#dialog').dialog({
           autoOpen: false,
           hide: 'fold',
           width: 300,
@@ -299,6 +327,7 @@ function init() {
         var closeButton = $('<span class="greenButton" style="width:40px;">OK</span>').bind("click", function() {
             $('#dialog').dialog('close');
         });
+        
         $('#dialog').append(closeButton);
 
         if (level == 'Tutorial') {
@@ -306,6 +335,8 @@ function init() {
           $('#dialog').dialog('open');
    
         }
+
+        //if it is zenmode, we do not have a timer, otherwise we do
         if (!zenMode) {
 
             $('#timer').countdown({
@@ -323,12 +354,9 @@ function init() {
 
 function updateDialog(title, text) {
 
-  $('#dialog').dialog('option','title', title)
-  .find('#message').text(text);
-  $('#dialog').dialog('open');
-
-}
-
-function updateOverlord() {
+    $('#dialog').dialog('option','title', title)
+    .find('#message').text(text);
+  
+     $('#dialog').dialog('open');
 
 }

@@ -29,6 +29,7 @@ $(document).ready(function(){
 	};
 
 	localStorage['robot'] = localStorage['robot'] || JSON.stringify(defaultBot);
+	localStorage['robotParts'] = JSON.stringify(robotParts);
 	var currentBot = JSON.parse( localStorage['robot'] );
 	loadRobotParts(currentBot);
 
