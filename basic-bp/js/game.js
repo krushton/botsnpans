@@ -131,9 +131,9 @@ $(document).ready(function() {
 
             }
 
-            //messy. normally we have only IDs to check but for the stove we could drop on either one of the 
-            //droppable burners, which have a shared class
-            
+            //messy. normally we have only IDs to check, but for the stove we could drop on either one of the 
+            //droppable burners, hence we use the class name instead
+
             if (level == "Tutorial") {
                 var target = '';
                 if ($(this).attr('id')) {
@@ -350,6 +350,21 @@ function init() {
             });
 
         }
+
+        //initialize robot 
+        if (localStorage['robot'] && localStorage['robot'] != "undefined" 
+            && localStorage['robotParts'] && localStorage['robotParts'] != 'undefined') {
+              mybot = JSON.parse(localStorage['robot']);
+              parts = JSON.parse(localStorage['robotParts']);
+              robot = findUrls(parts,mybot);
+
+              $('#target-6').attr('src', robot[5]);
+              $('#target-1').attr('src', robot[0]);
+              $('#target-2').attr('src', robot[1]);
+              $('#target-3').attr('src', robot[3]);
+              $('#target-4').attr('src', robot[2]);
+              $('#target-5').attr('src', robot[4]);
+        }
 }
 
 function updateDialog(title, text) {
@@ -359,4 +374,21 @@ function updateDialog(title, text) {
   
      $('#dialog').dialog('open');
 
+}
+
+function findUrls(arr, myBot) {
+  robotUrls = [];
+
+  for (partType in arr) {
+    
+    for (var i = 0; i < arr[partType].length; i++) {
+      console.log(arr[partType][i]);
+        if (mybot.parts.indexOf(arr[partType][i].id) >= 0) {
+             var url = 'images/robot/' + arr[partType][i].url;
+             robotUrls.push(url);
+             hasPart = true;
+        }
+    }
+  }
+  return robotUrls;
 }

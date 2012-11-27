@@ -13,6 +13,10 @@
 	margin: 10px 0 0 0;
 }
 
+#overlordSpace img {
+	vertical-align:top;
+}
+
 .column {
 	width: 314px;
 	height: 440px;
@@ -165,4 +169,20 @@
 }
 header h3{
 	color: white;
+}
+
+
+/* ===================== Robot Styles */
+.bodypart {
+	width:40px;
+}
+
+table {
+	display:inline-block;
+	margin-left:20px;
+	text-align:center;
+}
+
+table img {
+	margin:-1px;
 }

@@ -17,7 +17,7 @@ $(document).ready(function(){
 				 {url: 'robot-legs-plungers.png', id:14, position:5, display:true},
 				 {url: 'robot-legs-springs.png', id:15, position:5, display:true},
 				 {url: 'robot-legs-unicycle.png', id:16, position:5, display:true}],
-		extras : [{url: 'nohat.png', id:10, position:6, display:false},
+		extras : [{ url: 'tophat.png', id: 18, position: 6, display:true}, 
 				 { url: 'robot-accessories-chefHat.png', id: 8, position: 6, display:true} ]
 	};
 
@@ -41,6 +41,7 @@ $(document).ready(function(){
 		var position = $(this).data('position');
 		var target = $('#target-' + position);
 
+
 		target.data('id', $(this).data('id'));
 		target.attr('src', $(this).attr('src'));
 		target.show();
@@ -50,18 +51,8 @@ $(document).ready(function(){
 	});
 
 	$('#removeExtras').click(function() {
-			$('#myRobot img').each(function() {
-
-				if ($(this).data('position') == '6') {
-					var placeholder = robotParts['extras'][0];
-					$(this).attr({'id': 'target-' + placeholder.position, 'src':'images/robot/' + placeholder.url });
-
-					$(this).data({'id': placeholder.id, 'position': placeholder.position});
-					$(this).hide();
-					$('.extras img').each(function() { $(this).removeClass('highlighted'); });
-					return false;
-				}
-			});
+			$('#target-6').hide();
+			$('#target-6').data('id', '');
 	});
 
 
@@ -71,7 +62,7 @@ $(document).ready(function(){
 			var newName = $('#nameInput').val().length >=1 ? $('#nameInput').val() : $('#userName').text();
 			var newBot = { name : newName, parts : [] };
 
-			$('#myRobot img').each(function() {
+			$('.windowpart').each(function() {
 				newBot.parts.push($(this).data('id'));
 			});
 
@@ -91,14 +82,11 @@ $(document).ready(function(){
 
 
 
-
+//load the user's robot from localstorage and add all the body part options to the viewer
 function loadRobotParts(currentBot) {
 
 
-	$('#userName').text(currentBot.name);
-
-	var elem = $('#myRobot');
-	elem.find('img').remove();
+	$('#userName').text(currentBot.name);	
 	$('#partsViewer').find('img').remove();
 
 	for (partType in robotParts) {
@@ -108,20 +96,18 @@ function loadRobotParts(currentBot) {
 
 			if (currentBot['parts'].indexOf(val.id) != -1) {
 
-				var clone = part.clone();
-				clone.attr('id', "target-" + val.position);  
-				clone.removeClass('bodypart');
-				clone.addClass('windowpart');
-				if (!val.display) {
-					clone.css('display', 'none');
-				}
-				$('#myRobot').append(clone);
+				var targetPart = '#target-' + val.position;
+				$(targetPart).attr('src', part.attr('src'));
+				$(targetPart).data('id', part.data('id'));
+				$(targetPart).data('position', part.position);
+
 				part.addClass('highlighted');
-				
 			}
+
 			if (val.display) {
-				$('.' + partType).prepend(part);
+					$('.' + partType).prepend(part);
 			}
+			
 		});
 	}
 }
