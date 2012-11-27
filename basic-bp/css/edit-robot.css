@@ -22,9 +22,13 @@
 	border-width: 2px;
 }
 
-h3,#robotName {
+#robotName h3 {
 	display:inline;
 	margin:10px 10px 0px 0px;
+}
+
+#title {
+	margin-top: -3px;
 }
 
 #partsViewer {
