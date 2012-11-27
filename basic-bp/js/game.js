@@ -183,9 +183,12 @@ $(document).ready(function() {
                 $('#overlordSpace').find('.item').remove();
                 $('#overlordSpace').find('img').first()
                   .attr('src', 'images/overlord/happy.png')
-                  .after($(this).clone().css('position', 'static'));
+                  .after($(this).clone()
+                    .css({'max-width':'100px', 'position': 'relative', 'top': 143 - $(this).height(), 'left': '20px'}))
+                  .after($('<img src="images/items/table.png">')
+                    .css({'width':'120px', 'position':'absolute', 'top': '190px'}));
                  
-                updateDialog('You win!', 'Great job :) Click "Recipe Book" to go back to the menu.');
+                updateDialog('You win!', 'Great job :) Click "Home" to go back to the recipe book.');
                 $('.ring').css('border', '2px solid #000');
 
                 if (!zenMode) {

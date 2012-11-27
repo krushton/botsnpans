@@ -89,6 +89,10 @@
 	overflow: auto;
 }
 
+#robotHead {
+	width:150px;
+	margin:10px 20px;
+}
 
 /* popovers */
 .popover{
