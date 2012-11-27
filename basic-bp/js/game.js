@@ -6,7 +6,7 @@ $(document).ready(function() {
       "Tutorial" : [ 
            { url : 'water.png', id : 1, type : 'ingredient', parents: [0,0]},
            { url : 'saucepan.png', id : 2, type : 'tool',  parents: [0,0]},
-           { url : 'cheese.jpg', id : 3, type : 'ingredient',  parents: [0,0], last: true},
+           { url : 'cheese.png', id : 3, type : 'ingredient',  parents: [0,0], last: true},
            { url: 'bowl.png', id : 4, type: 'tool', parents: [0,0]},
            { url : 'saucepan-withwater.png', id : 5, type : 'transition',  parents: [1,2]},
            { url : 'saucepan-boiling.png', id: 6, type : 'transition', parents: [7, 5]},
@@ -51,13 +51,14 @@ $(document).ready(function() {
           {title: "Stove", message: "Put the pot on the stove.", source: '2', location: 'burner'},
           {title:"Combine", message: "Put the water in the pot.", source: '1', location: '2'},
           {title: "Workspace", message: "Put the cheese in the workspace.", source: '3', location: "workSpace"},
-          {title: "Serve", message: "Serve the cake!", source: '3', location: "botSpace"},
+          {title: "Serve", message: "Serve the cheese!", source: '3', location: "botSpace"},
           {title: "Tutorial Complete", message: "Great Job!" }];
 
       states = [];
       level = '';
       zenMode = false;
       tutorialStep = 0;
+
       init();
 
 
@@ -93,7 +94,7 @@ $(document).ready(function() {
             var elem = ui.helper.clone()
                     .attr('id', (id) + "-clone")
                     .removeClass('ui-draggable-dragging')
-                    .draggable({'helper':'clone'})
+                    .draggable({helper:'clone'})
                     .droppable({accepts: '.item', greedy: true, drop: handleDrop});
 
                      elem.css({
@@ -112,7 +113,10 @@ $(document).ready(function() {
                 for (var i =0; i < states.length; i++) {
 
                   if (states[i].parents.indexOf(numid) >= 0 && states[i].parents.indexOf(heatId) >= 0) {
-                      $('#' + elem.attr('id')).attr({'src': 'images/items/' + states[i].url, 'id' : states[i].id + '-clone'});
+
+                      $('#' + elem.attr('id')).attr(
+                        {'src': 'images/items/' + states[i].url, 
+                        'id' : states[i].id + '-clone' });
                   }
                }
             }
@@ -129,7 +133,7 @@ $(document).ready(function() {
                 } else {
                    target = $(this).attr('class').split(' ')[0];
                 }
-                console.log(target);
+
                 handleTutorial(id, target);
           }
           
